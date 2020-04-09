@@ -10,6 +10,15 @@ const router = express.Router();
 // I HAVE NO IDEA WHICH OF THESE IS NEEDED OR WHAT THEY DO
 // I JUST COPY PAST
 
+// Check for admin status
+const authorize = function(request, response, next) {
+  if (request.session.admin) {
+    next(); // Fulfill the request
+  } else {
+    response.status(401).end();
+  }
+};
+
 // Handle events requests
 router.get('/events', events.index);
 router.get('/events/:id', events.retrieve);
