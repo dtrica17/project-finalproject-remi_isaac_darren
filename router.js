@@ -11,16 +11,25 @@ const router = express.Router();
 // I JUST COPY PAST
 
 // Handle events requests
-router.get('/events', courses.index);
-router.get('/events/:id', courses.retrieve);
+router.get('/events', events.index);
+router.get('/events/:id', events.retrieve);
+router.post('/events', authorize, events.create);
+router.delete('/events/:id', authorize, events.delete);
+router.put('/events/:id', authorize, events.update);
 
 // Handle comments requests
-router.get('/comments', sections.index);
-router.get('/comments/:id', courses.retrieve);
+router.get('/comments', comments.index);
+router.get('/comments/:id', comments.retrieve);
+router.post('/comments', authorize, comments.create);
+router.delete('/comments/:id', authorize, comments.delete);
+router.put('/comments/:id', authorize, comments.update);
 
 // Handle users requests
-router.get('/users', sections.index);
-router.get('/users/:id', courses.retrieve);
+router.get('/users', users.index);
+router.get('/users/:id', users.retrieve);
+router.post('/users', authorize, users.create);
+router.delete('/users/:id', authorize, users.delete);
+router.put('/users/:id', authorize, users.update);
 
 
 // Export the router
