@@ -25,8 +25,8 @@ const users = [
 ];
 
 const comments = [
-  new User({_id: 'Remi Leblanc', event: 'Raft Day', comment: 'Hope the weather is nice!'}),
-  new User({_id: 'Isaac Brinkman', event: 'Tirus', comment: '$30? What a rip off!'}),
+  new User({_id: 'Remi LeBlanc', event: 'Raft Day', comment: 'Hope the weather is nice!'}),
+  new User({_id: 'Isaac Brinkman', event: 'Titus', comment: '$30? What a rip off!'}),
   new User({_id: 'Darren', event: 'Spring Fest', comment: "Who's the artist this year? I recommend Remi LeBlanc."}),
 ];
 
