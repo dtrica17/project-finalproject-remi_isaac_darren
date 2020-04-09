@@ -1,7 +1,7 @@
 const express = require('express');
-const courses = require('./controllers/comments');
-const sections = require('./controllers/events');
-const sections = require('./controllers/users');
+const comments = require('./controllers/comments');
+const events = require('./controllers/events');
+const users = require('./controllers/users');
 
 
 // Create the router
