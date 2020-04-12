@@ -15,12 +15,14 @@ module.exports.retrieve = function(request, response, next) {
     Event.distinct('_id')
   ];
 
+// im not sure its getting here
+// everyime this runs it goes to
+// cs-linuxlab-##.stlawu:3000/events/undefined
+// should be going to events/index
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
-      console.log('here');
       response.render('events/index', {event: eve, eventIDs: eventIDs});
     } else {
-      console.log('here');
       next(); // No such Event
     }
   }).catch(error => next(error));
