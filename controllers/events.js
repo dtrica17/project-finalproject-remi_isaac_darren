@@ -1,10 +1,10 @@
 // Controller for the course collection.
-const Course = require('../models/event');
+const Event = require('../models/event');
 
 // GET /courses
 module.exports.index = function(request, response, next) {
   Course.distinct('_id')
-    .then(courseIDs => response.redirect(`/events/${courseIDs[0]}`))
+    .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
     .catch(error => next(error));
 };
 
@@ -16,7 +16,7 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([course, courseIDs]) {
-    if (course) {
+    if (event) {
       response.render('events/index', {event: event, eventIDs: eventIDs});
     } else {
       next(); // No such course
