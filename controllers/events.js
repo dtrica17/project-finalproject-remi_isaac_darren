@@ -4,6 +4,7 @@ const Event = require('../models/event');
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
+    .then(response.render('events/index', {event: event, eventIDs: eventIDs}))
     .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
     .catch(error => next(error));
 };
@@ -19,9 +20,9 @@ module.exports.retrieve = function(request, response, next) {
 // everyime this runs it goes to
 // cs-linuxlab-##.stlawu:3000/events/undefined
 // should be going to events/index
-  Promise.all(queries).then(function([eve, eventIDs]) {
+  Promise.all(queries).then(function([event, eventIDs]) {
     if (eve) {
-      response.render('events/index', {event: eve, eventIDs: eventIDs});
+      response.render('events/index', {event: event, eventIDs: eventIDs});
     } else {
       next(); // No such Event
     }
