@@ -19,6 +19,7 @@ module.exports.retrieve = function(request, response, next) {
     if (event) {
       response.render('events/index', {event: event, eventIDs: eventIDs});
     } else {
+      console.log('here');
       next(); // No such Event
     }
   }).catch(error => next(error));
