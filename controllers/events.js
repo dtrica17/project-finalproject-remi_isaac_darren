@@ -3,7 +3,7 @@ const Event = require('../models/event');
 
 // GET /events
 module.exports.index = function(request, response, next) {
-  Events.distinct('_id')
+  Event.distinct('_id')
     .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
     .catch(error => next(error));
 };
@@ -11,8 +11,8 @@ module.exports.index = function(request, response, next) {
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
   const queries = [
-    Events.findById(request.params.id),
-    Events.distinct('_id')
+    Event.findById(request.params.id),
+    Event.distinct('_id')
   ];
 
   Promise.all(queries).then(function([event, eventIDs]) {
