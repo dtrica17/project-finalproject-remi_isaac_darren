@@ -28,7 +28,7 @@ app.use(function(request, response, next) {
 // Redirect from the home page
 app.get('/', function(request, response) {
   // events/index does not exsist
-  response.redirect('/events');
+  //response.redirect('/events');
   response.render('/events/index');
 
   //response.render('/events/index');
@@ -50,5 +50,5 @@ app.use(function(error, request, response) {
 });
 
 // Start the server
-app.listen(3001);
+app.listen(3000);
 console.log('Server is ready.');
