@@ -20,7 +20,7 @@ module.exports.retrieve = function(request, response, next) {
 // cs-linuxlab-##.stlawu:3000/events/undefined
 // should be going to events/index
   Promise.all(queries).then(function([event, eventIDs]) {
-    if (eve) {
+    if (event) {
       response.render('events/index', {event: event, eventIDs: eventIDs});
     } else {
       next(); // No such Event
