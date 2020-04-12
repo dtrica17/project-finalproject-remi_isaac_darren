@@ -17,6 +17,7 @@ module.exports.retrieve = function(request, response, next) {
 
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
+      console.log('here');
       response.render('events/index', {event: eve, eventIDs: eventIDs});
     } else {
       console.log('here');
