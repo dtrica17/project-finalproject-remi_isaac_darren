@@ -4,7 +4,6 @@ const Event = require('../models/event');
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
-    .then(response.render('events/index', {event: event, eventIDs: eventIDs}))
     .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
     .catch(error => next(error));
 };
