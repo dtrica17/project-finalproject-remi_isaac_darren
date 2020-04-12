@@ -9,7 +9,7 @@ connect();
 const app = express();
 
 // configure the views
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');  // for some reason this is not working
 app.set('views', './views');
 
 // Ignore icon requests
