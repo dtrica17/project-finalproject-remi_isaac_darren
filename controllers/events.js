@@ -15,9 +15,9 @@ module.exports.retrieve = function(request, response, next) {
     Event.distinct('_id')
   ];
 
-  Promise.all(queries).then(function([event, eventIDs]) {
-    if (event) {
-      response.render('events/index', {event: event, eventIDs: eventIDs});
+  Promise.all(queries).then(function([eve, eventIDs]) {
+    if (eve) {
+      response.render('events/index', {event: eve, eventIDs: eventIDs});
     } else {
       console.log('here');
       next(); // No such Event
