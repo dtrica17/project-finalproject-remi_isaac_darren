@@ -29,6 +29,8 @@ app.use(function(request, response, next) {
 app.get('/', function(request, response) {
   // events/index does not exsist
   response.redirect('/events');
+  response.render('/events/index');
+
   //response.render('/events/index');
 });
 
