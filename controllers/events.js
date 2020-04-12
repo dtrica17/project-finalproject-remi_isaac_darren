@@ -3,7 +3,7 @@ const Event = require('../models/event');
 
 // GET /events
 module.exports.index = function(request, response, next) {
-  Course.distinct('_id')
+  Events.distinct('_id')
     .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
     .catch(error => next(error));
 };
