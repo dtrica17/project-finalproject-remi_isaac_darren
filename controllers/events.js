@@ -2,15 +2,6 @@
 const Event = require('../models/event');
 
 
-// module.exports.index = function(request, response, next) {
-//   const order = request.query.sort || '_id';
-//
-//   Event.find()
-//   .then(console.log('first'))
-//     .then(stores => response.render('events/index'))
-//     .catch(error => next(error));
-// };
-
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
