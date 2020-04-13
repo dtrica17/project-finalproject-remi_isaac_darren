@@ -10,6 +10,7 @@ module.exports.index = function(request, response, next) {
 
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
+  console.log(request)
   const queries = [
     Event.findById(request.params.id),
     Event.distinct('_id')
@@ -22,7 +23,7 @@ module.exports.retrieve = function(request, response, next) {
 console.log("herex")
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
-      response.render('/events/index.ejs', {event: eve, eventIDs: eventIDs});
+      response.render('events/index', {event: eve, eventIDs: eventIDs});
     } else {
       next(); // No such Event
     }
