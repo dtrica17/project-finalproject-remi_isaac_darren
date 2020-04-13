@@ -19,6 +19,7 @@ module.exports.retrieve = function(request, response, next) {
 // everyime this runs it goes to
 // cs-linuxlab-##.stlawu:3000/events/undefined
 // should be going to events/index
+console.log("herex")
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
       response.render('events/index', {event: eve, eventIDs: eventIDs});
