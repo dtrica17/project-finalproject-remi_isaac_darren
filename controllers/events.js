@@ -10,12 +10,12 @@ module.exports.index = function(request, response, next) {
 
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
-  console.log(response)
+
   const queries = [
     Event.findById(request.params.id),
     Event.distinct('_id')
   ];
-
+console.log(queries)
 // im not sure its getting here
 // everyime this runs it goes to
 // cs-linuxlab-##.stlawu:3000/events/undefined
