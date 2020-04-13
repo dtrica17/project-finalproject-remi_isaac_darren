@@ -32,7 +32,7 @@ app.get('/', function(request, response) {
   //response.redirect('/events');
   //response.render('events/index');
 
-  response.render('/events/index');
+  response.render('index');
 });
 
 // Route content requests
