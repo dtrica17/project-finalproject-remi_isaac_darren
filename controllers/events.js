@@ -1,6 +1,15 @@
 // Controller for the event collection.
 const Event = require('../models/event');
 
+
+module.exports.index = function(request, response, next) {
+  const order = request.query.sort || '_id';
+
+  Event.find().sort(date)
+    .then(stores => response.render('events/index', {events: event, date: date}))
+    .catch(error => next(error));
+};
+/*
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
@@ -28,3 +37,4 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+*/
