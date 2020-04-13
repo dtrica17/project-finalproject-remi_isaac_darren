@@ -10,7 +10,7 @@ module.exports.index = function(request, response, next) {
 
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
-  console.log(request.params.id)
+  console.log(response)
   const queries = [
     Event.findById(request.params.id),
     Event.distinct('_id')
