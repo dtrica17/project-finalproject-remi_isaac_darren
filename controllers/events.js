@@ -7,7 +7,7 @@ module.exports.index = function(request, response, next) {
 
   Event.find()
   .then(console.log('first'))
-    .then(stores => response.render('events/index', {event: event}))
+    .then(stores => response.render('events/index'))
     .catch(error => next(error));
 };
 /*
