@@ -15,14 +15,12 @@ module.exports.retrieve = function(request, response, next) {
     Event.findById(request.params.id),
     Event.distinct('_id')
   ];
-// im not sure its getting here
-// everyime this runs it goes to
-// cs-linuxlab-##.stlawu:3000/events/undefined
-// should be going to events/index
 
+  // code fails
+  //Failed to lookup view "events/index" in views directory "./views"
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
-      response.render('Events/index', {event: eve, eventIDs: eventIDs});
+      response.render('events/index', {event: eve, eventIDs: eventIDs});
     } else {
       next(); // No such Event
     }
