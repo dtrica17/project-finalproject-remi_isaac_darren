@@ -10,7 +10,7 @@ const app = express();
 
 // configure the views
 app.set('view engine', 'ejs');  // for some reason this is not working
-app.set('views', './views');
+app.set('views', './views/');
 
 // Ignore icon requests
 app.get('/favicon.ico', function(request, response) {
@@ -18,6 +18,7 @@ app.get('/favicon.ico', function(request, response) {
 });
 
 // Log requests to the console
+//request.body is undefined...
 app.use(function(request, response, next) {
   console.log('--------------------------', new Date().toLocaleTimeString());
   console.log(request.method, request.url);
