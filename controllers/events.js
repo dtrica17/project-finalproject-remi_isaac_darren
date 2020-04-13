@@ -2,24 +2,24 @@
 const Event = require('../models/event');
 
 
-module.exports.index = function(request, response, next) {
-  const order = request.query.sort || '_id';
+// module.exports.index = function(request, response, next) {
+//   const order = request.query.sort || '_id';
+//
+//   Event.find()
+//   .then(console.log('first'))
+//     .then(stores => response.render('events/index'))
+//     .catch(error => next(error));
+// };
 
-  Event.find()
-  .then(console.log('first'))
-    .then(stores => response.render('events/index'))
-    .catch(error => next(error));
-};
-/*
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
     //.then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
-    .then(eventIDs => response.render('/events/index.ejs'))
+    .then(eventIDs => response.render('GET /events'))
     .catch(error => next(error))
     .then(console.log("im here"));
 };
-*/
+
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
 
