@@ -6,6 +6,7 @@ module.exports.index = function(request, response, next) {
   const order = request.query.sort || '_id';
 
   Event.find().sort(date)
+  .then(console.log('first'))
     .then(stores => response.render('events/index', {events: event, date: date}))
     .catch(error => next(error));
 };
@@ -18,7 +19,7 @@ module.exports.index = function(request, response, next) {
     .catch(error => next(error))
     .then(console.log("im here"));
 };
-
+*/
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
 
@@ -37,4 +38,3 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
-*/
