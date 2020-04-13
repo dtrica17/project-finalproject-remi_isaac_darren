@@ -5,9 +5,9 @@ const Event = require('../models/event');
 module.exports.index = function(request, response, next) {
   const order = request.query.sort || '_id';
 
-  Event.find().sort(date)
+  Event.find()
   .then(console.log('first'))
-    .then(stores => response.render('events/index', {events: event, date: date}))
+    .then(stores => response.render('events/index', {event: event}))
     .catch(error => next(error));
 };
 /*
