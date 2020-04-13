@@ -22,7 +22,7 @@ module.exports.retrieve = function(request, response, next) {
 
   Promise.all(queries).then(function([eve, eventIDs]) {
     if (eve) {
-      response.render('events/index', {event: eve, eventIDs: eventIDs});
+      response.render('Events/index', {event: eve, eventIDs: eventIDs});
     } else {
       next(); // No such Event
     }
