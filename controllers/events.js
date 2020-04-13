@@ -8,24 +8,23 @@ module.exports.index = function(request, response, next) {
     .catch(error => next(error));
 };
 
-// // GET /events/:id
-// module.exports.retrieve = function(request, response, next) {
-//
-//   const queries = [
-//     Event.findById(request.params.id),
-//     Event.distinct('_id')
-//   ];
-// console.log(queries)
-// // im not sure its getting here
-// // everyime this runs it goes to
-// // cs-linuxlab-##.stlawu:3000/events/undefined
-// // should be going to events/index
-// console.log("herex")
-//   Promise.all(queries).then(function([eve, eventIDs]) {
-//     if (eve) {
-//       response.render('events/index', {event: eve, eventIDs: eventIDs});
-//     } else {
-//       next(); // No such Event
-//     }
-//   }).catch(error => next(error));
-// };
+// GET /events/:id
+module.exports.retrieve = function(request, response, next) {
+
+  const queries = [
+    Event.findById(request.params.id),
+    Event.distinct('_id')
+  ];
+// im not sure its getting here
+// everyime this runs it goes to
+// cs-linuxlab-##.stlawu:3000/events/undefined
+// should be going to events/index
+
+  Promise.all(queries).then(function([eve, eventIDs]) {
+    if (eve) {
+      response.render('events/index', {event: eve, eventIDs: eventIDs});
+    } else {
+      next(); // No such Event
+    }
+  }).catch(error => next(error));
+};
