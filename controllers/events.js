@@ -4,8 +4,10 @@ const Event = require('../models/event');
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
-    .then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
-    .catch(error => next(error));
+    //.then(eventIDs => response.redirect(`/events/${eventIDs[0]}`))
+    .then(eventIDs => response.redirect('/events/index'))
+    .catch(error => next(error))
+    .then(console.log("im here"));
 };
 
 // GET /events/:id
