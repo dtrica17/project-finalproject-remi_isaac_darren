@@ -19,12 +19,12 @@ module.exports.retrieve = function(request, response, next) {
     Event.find(),
     Comment.find().where('event').equals(request.params.id)
   ];
-  console.log(Comment.find().where('event').equals(request.params.id).comment);
 
   // code fails
   //Failed to lookup view "events/index" in views directory "./views"
   Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
+      console.log(comments.comment);
       response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
     } else {
       next(); // No such Event
