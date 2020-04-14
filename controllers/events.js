@@ -7,7 +7,7 @@ const Comment = require('../models/comment');
 // GET /events
 module.exports.index = function(request, response, next) {
   Event.distinct('_id')
-    .then(eventIDs => response.render('/events/main'))
+    .then(eventIDs => response.render('events/main'))
     .catch(error => next(error))
 };
 
