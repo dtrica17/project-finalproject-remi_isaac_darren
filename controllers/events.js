@@ -1,5 +1,7 @@
 // Controller for the event collection.
 const Event = require('../models/event');
+const Comment = require('../models/comment');
+
 
 
 // GET /events

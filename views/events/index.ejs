@@ -2,19 +2,32 @@
 <html>
   <%- include('../head'); -%>
   <body>
-  <%- include('../navbar', {active: 'events'}); -%>
-    <h1>Non Acadmeic Events</h1>
+    <%- include('../navbar', {active: 'event'}); -%>
     <div class="container-fluid">
-      <main class="p-3">
-        <div class="row">
-          <!--
-          <!- for each event add that events name in a seperate column ->
-          <%_ for (const id of eventIDs) { -%>
-            <div class="col border text-primary">id._id</div>
-          <%_ } -%>
-        -->
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const id of eventIDs) { -%>
+              <a href="/events/<%= id -%>" class="nav-item nav-link <%= id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
+            <%_ } -%>
+          </nav>
         </div>
-      </main>
+        <div class="col">
+          <main class="p-3">
+            <h2><%= event._id -%></h2>
+            <h3><%= event.people_invited -%></h3>
+            <p><%= event.description -%></p>
+            <!-- <%_ if (event.comments.length > 0) { -%>
+              <p>Coments:</p>
+              <ul>
+                <%_ for (const c of course.comments) { -%>
+                  <li><a href="/courses/<%= prereq -%>"><%= prereq -%></a></li>
+                <%_ } -%>
+              </ul>
+            <%_ } -%> -->
+          </main>
+        </div>
+      </div>
     </div>
   </body>
 </html>
