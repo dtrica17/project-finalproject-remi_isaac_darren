@@ -7,9 +7,11 @@
       <main class="p-3">
         <%_ if (event._id === "Calendar") { -%>
           <h1>Calendar: </h1>
-          <%_ for (var i = 1; i < allEvents.length; i++) { -%>
-            <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%=allEvents[i]._id-%></a>
-            <p class="ml-3"><%=allEvents[i].date-%></p>
+          <%_ for (const e of allEvents) { -%>
+            <%_ if (e._id !== "Calendar") { -%>
+              <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e._id-%></a>
+              <p class="ml-3"><%=e.date-%></p>
+            <%_ } -%>
           <%_ } -%>
         <%_ } -%>
         <%_ if (event._id !== "Calendar") { -%>
