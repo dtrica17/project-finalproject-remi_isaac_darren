@@ -8,6 +8,7 @@
 
           <%_ for (let i = 1; i < allEvents.length; i++) { -%>
             <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%=allEvents[i]._id-%></a>
+            <p><%=allEvents[i].date-%></p>
           <%_ } -%>
 
       </main>
