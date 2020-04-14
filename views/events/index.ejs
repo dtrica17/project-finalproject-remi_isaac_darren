@@ -4,12 +4,30 @@
 <body>
   <div class="container-fluid">
       <main class="p-3">
+        <%_ if (event._id === "Calendar") { -%>
           <h1>Calendar: </h1>
-
-          <%_ for (let i = 1; i < allEvents.length; i++) { -%>
+          <%_ for (var i = 1; i < allEvents.length; i++) { -%>
             <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%=allEvents[i]._id-%></a>
-            <p><%=allEvents[i].date-%></p>
+            <p class="ml-3"><%=allEvents[i].date-%></p>
           <%_ } -%>
+        <%_ } -%>
+        <%_ if (event._id !== "Calendar") { -%>
+              <div class="row">
+              <div class="col-auto p-3 border-right">
+                <nav class="nav nav-pills flex-column">
+                  <%_ for (const id of allEvents) { -%>
+                    <a href="/events/<%= id._id -%>" class="nav-item nav-link <%= id._id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id._id -%></a>
+                  <%_ } -%>
+                  </nav>
+                </div>
+                <div class="col">
+                  <h2><%= event._id -%></h2>
+                  <h3><%= event.people_invited -%></h3>
+                  <p><%= event.description -%></p>
+              </div>
+            </div>
+        <%_ } -%>
+
 
       </main>
   </div>
