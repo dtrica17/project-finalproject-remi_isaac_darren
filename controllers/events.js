@@ -17,14 +17,14 @@ module.exports.retrieve = function(request, response, next) {
   const queries = [
     Event.findById(request.params.id),
     Event.find(),
-    Comment.find().where('event').equals(request.params.id)
+    Comment.find()
   ];
 
   // code fails
   //Failed to lookup view "events/index" in views directory "./views"
   Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
-      console.log(comments.comment);
+      //console.log(comments[0].comment);
       response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
     } else {
       next(); // No such Event
