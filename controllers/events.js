@@ -6,8 +6,8 @@ const Comment = require('../models/comment');
 
 // GET /events
 module.exports.index = function(request, response, next) {
-  Event.distinct('_id').sort(date)
-    .then(eventIDs => response.redirect(`events/${eventIDs[0]}`))
+  Event.find().sort(date)
+    .then(eventIDs => response.redirect(`events/${allEvents[0]}`))
     .catch(error => next(error))
 };
 
