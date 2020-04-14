@@ -6,7 +6,8 @@
       <main class="p-3">
           <h1>Calendar: </h1>
 
-          <%_ for (const c in allEvents) { -%>
+          <%_ for (let i = 1; i < allEvents.length; i++) { -%>
+            <a href="" class="nav-item nav-link"><%= allEvents[i]._id        allEvents[i].date -%></a>
           <%_ } -%>
 
       </main>
