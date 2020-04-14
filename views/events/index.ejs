@@ -31,7 +31,14 @@
                   <h4>People Invited: <%= event.people_invited-%></h4>
                   <h4>Location: <%=event.location-%></h4>
                   <p><%= event.description -%></p>
-              </div>
+                  <h2>Comments:</h2>
+                  <%_ for (const c of comments) { -%>
+                    <p><%-c.comment-%></p>
+                    <p>Posted By: <%-c._id-%></p>
+                  <%_ } -%>
+
+
+                </div>
             </div>
         <%_ } -%>
 

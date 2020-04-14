@@ -16,14 +16,15 @@ module.exports.index = function(request, response, next) {
 module.exports.retrieve = function(request, response, next) {
   const queries = [
     Event.findById(request.params.id),
-    Event.find()
+    Event.find(),
+    Comment.find().where('event').equals(request.params.id)
   ];
 
   // code fails
   //Failed to lookup view "events/index" in views directory "./views"
-  Promise.all(queries).then(function([event, allEvents]) {
+  Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
-      response.render('events/index', {event: event, allEvents: allEvents});
+      response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
     } else {
       next(); // No such Event
     }
