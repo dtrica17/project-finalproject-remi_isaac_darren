@@ -19,9 +19,8 @@ module.exports.retrieve = function(request, response, next) {
     Event.find(),
     Comment.find()
   ];
+  console.log(Comment.find()[0].comment);
 
-  // code fails
-  //Failed to lookup view "events/index" in views directory "./views"
   Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
       //console.log(comments[0].comment);
