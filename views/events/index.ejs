@@ -5,20 +5,23 @@
     <%- include('../navbar', {active: 'event'}); -%>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-auto p-3 border-right">
-          <nav class="nav nav-pills flex-column">
-            <a href="/events/main.ejs" class="nav-item nav-link active bg-dark">Main</a>
-            <%_ for (const id of eventIDs) { -%>
-              <a href="/events/<%= id -%>" class="nav-item nav-link <%= id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
-            <%_ } -%>
-          </nav>
-        </div>
+
         <div class="col">
           <main class="p-3">
             <%_ if (event._id === "Calendar") { -%>
               <h1>Calendar: </h1>
+              <%_ for (var i = 1; i < eventIDs.length; i++) { -%>
+                <a href="/events/<%= eventIDs[i] -%>" class="nav-item nav-link"><%= eventIDs[i] -%></a>
+              <%_ } -%>
             <%_ } -%>
             <%_ if (event._id !== "Calendar") { -%>
+              <div class="col-auto p-3 border-right">
+                <nav class="nav nav-pills flex-column">
+                  <%_ for (const id of eventIDs) { -%>
+                    <a href="/events/<%= id -%>" class="nav-item nav-link <%= id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
+                  <%_ } -%>
+                </nav>
+              </div>
             <h2><%= event._id -%></h2>
             <h3><%= event.people_invited -%></h3>
             <p><%= event.description -%></p>
