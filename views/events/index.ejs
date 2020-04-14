@@ -33,10 +33,10 @@
                   <p><%= event.description -%></p>
                   <h2>Comments:</h2>
                   <%_ for (const c of comments) { -%>
-                    <%_ if (c.event === event._id) { -%>
+                    <%_// if (c.event === event._id) { -%>
                       <p><%-c.comment-%></p>
                       <p>Posted By: <%-c._id-%></p>
-                    <%_ } -%>
+                    <%_// } -%>
 
                   <%_ } -%>
 
