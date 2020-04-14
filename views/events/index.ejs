@@ -15,9 +15,14 @@
         </div>
         <div class="col">
           <main class="p-3">
+            <%_ if (event._id === "Calendar"){ -%>
+              <h1>Calendar: </h1>
+            <%_ } -%>
+            <%_ else { -%>
             <h2><%= event._id -%></h2>
             <h3><%= event.people_invited -%></h3>
             <p><%= event.description -%></p>
+            <%_ } -%>
           </main>
         </div>
       </div>
