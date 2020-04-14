@@ -5,8 +5,9 @@
   <div class="container-fluid">
       <main class="p-3">
           <h1>Calendar: </h1>
-          <%_ for (var i = 1; i < allEvents.length; i++) { -%>
-            <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%= allEvents[i]._id-%></a>
+
+          <%_ for (const c in allEvents) { -%>
+            <a href="/events/<%= c._id -%>" class="nav-item nav-link"><%= c._id        c.date -%></a>
           <%_ } -%>
 
       </main>
