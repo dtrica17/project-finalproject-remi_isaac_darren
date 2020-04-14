@@ -7,15 +7,17 @@
       <div class="row">
         <div class="col-auto p-3 border-right">
           <nav class="nav nav-pills flex-column">
-              <a href="/events/main.ejs" class="nav-item nav-link active bg-dark">Main</a>
-              <%_ for (const id of eventIDs) { -%>
-                <a href="/events/<%= id -%>" class="nav-item nav-link <%= id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
-              <%_ } -%>
+            <a href="/events/main.ejs" class="nav-item nav-link active bg-dark">Main</a>
+            <%_ for (const id of eventIDs) { -%>
+              <a href="/events/<%= id -%>" class="nav-item nav-link <%= id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
+            <%_ } -%>
           </nav>
         </div>
         <div class="col">
           <main class="p-3">
-
+            <h2><%= event._id -%></h2>
+            <h3><%= event.people_invited -%></h3>
+            <p><%= event.description -%></p>
           </main>
         </div>
       </div>
