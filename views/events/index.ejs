@@ -18,7 +18,7 @@
             <%_ if (event._id === "Calendar"){ -%>
               <h1>Calendar: </h1>
             <%_ } -%>
-            <%_ else { -%>
+            <%_ if (event._id !== "Calendar") { -%>
             <h2><%= event._id -%></h2>
             <h3><%= event.people_invited -%></h3>
             <p><%= event.description -%></p>
