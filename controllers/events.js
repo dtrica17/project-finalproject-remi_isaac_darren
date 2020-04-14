@@ -9,7 +9,7 @@ module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'date'; // Default to sort by course
 
   Event.find().sort(order)
-    .then(allEvents => response.redirect(`events/${allEvents[0]}`))
+    .then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
     .catch(error => next(error))
 };
 
