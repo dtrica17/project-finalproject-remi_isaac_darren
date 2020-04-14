@@ -8,7 +8,7 @@
         <%_ if (event._id === "Calendar") { -%>
           <h1>Calendar: </h1>
           <%_ for (var i = 1; i < allEvents.length; i++) { -%>
-            <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%= allEvents[i]._id        allEvents.date -%></a>
+            <a href="/events/<%= allEvents[i]._id -%>" class="nav-item nav-link"><%= allEvents[i]._id        allEvents[i].date -%></a>
           <%_ } -%>
         <%_ } -%>
         <%_ if (event._id !== "Calendar") { -%>
