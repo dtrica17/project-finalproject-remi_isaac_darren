@@ -19,7 +19,7 @@ module.exports.retrieve = function(request, response, next) {
     Event.find(),
     Comment.find().where('event').equals(request.params.id)
   ];
-  console.log(Comment.find().where('event').equals(request.params.id));
+  console.log(Comment.find().where('event').equals(request.params.id).comment);
 
   // code fails
   //Failed to lookup view "events/index" in views directory "./views"
