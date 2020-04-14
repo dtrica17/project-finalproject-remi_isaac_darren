@@ -2,7 +2,7 @@
 <html>
 <%- include('../head'); -%>
 <body>
-  <%- include('../navbar'); -%>
+  <%- include('../navbar', {active: 'events'}); -%>
   <div class="container-fluid">
       <main class="p-3">
         <%_ if (event._id === "Calendar") { -%>
