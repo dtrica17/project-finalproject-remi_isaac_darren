@@ -6,9 +6,8 @@ const Comment = require('../models/comment');
 
 // GET /events
 module.exports.index = function(request, response, next) {
-  //const order = request.query.sort || 'date'; // Default to sort by course
-  Event.find()
-    //.sort(order)
+  const order = request.query.sort || '_id'; // Default to sort by course
+  Event.find().sort(order)
     .then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
     .catch(error => next(error))
 };
