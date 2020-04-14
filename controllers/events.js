@@ -14,7 +14,6 @@ module.exports.index = function(request, response, next) {
 
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
-
   const queries = [
     Event.findById(request.params.id),
     Event.find()
@@ -22,9 +21,9 @@ module.exports.retrieve = function(request, response, next) {
 
   // code fails
   //Failed to lookup view "events/index" in views directory "./views"
-  Promise.all(queries).then(function([eve, allEvents]) {
-    if (eve) {
-      response.render('events/index', {event: eve, allEvents: allEvents});
+  Promise.all(queries).then(function([event, allEvents]) {
+    if (event) {
+      response.render('events/index', {event: event, allEvents: allEvents});
     } else {
       next(); // No such Event
     }
