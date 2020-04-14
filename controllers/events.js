@@ -17,9 +17,8 @@ module.exports.retrieve = function(request, response, next) {
   const queries = [
     Event.findById(request.params.id),
     Event.find(),
-    Comment.find()
+    Comment.find().where('event').equals(request.params.id)
   ];
-  console.log(Comment.find()[0].comment);
 
   Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
