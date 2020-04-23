@@ -29,9 +29,9 @@ app.use(function(request, response, next) {
 // Redirect from the home page
 app.get('/', function(request, response) {
   // events/index does not exsist
-  response.redirect('/events');
+  //response.redirect('/events');
 
-  //response.render('index');
+  response.render('events/detail');
 });
 
 // Route content requests

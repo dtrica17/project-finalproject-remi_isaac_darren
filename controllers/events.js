@@ -13,6 +13,9 @@ module.exports.index = function(request, response, next) {
 
     .catch(error => next(error))
 };
+//Get /events/Calendar
+
+
 
 // GET /events/:id
 module.exports.retrieve = function(request, response, next) {
@@ -25,8 +28,9 @@ module.exports.retrieve = function(request, response, next) {
   Promise.all(queries).then(function([event, allEvents, comments]) {
     if (event) {
       //console.log(comments[0].comment);
-      response.render('events/detail', {event: event, allEvents: allEvents, comments: comments});
-    } else {
+      response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
+    }
+    else {
       next(); // No such Event
     }
   }).catch(error => next(error));
