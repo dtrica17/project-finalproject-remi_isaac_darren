@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<%- include('../head'); -%>
+<body>
+  <%- include('../navbar', {active: 'events'}); -%>
+  <div class="container-fluid">
+      <main class="p-3">
+        <h1>Calendar: </h1>
+        <%_ for (const e of allEvents) { -%>
+          <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e._id-%></a>
+          <p class="ml-3"><%=e.date-%></p>
+        <%_ } -%>
+      </main>
+  </div>
+</body>
+</html>

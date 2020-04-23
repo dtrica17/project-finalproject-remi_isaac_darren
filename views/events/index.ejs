@@ -4,47 +4,33 @@
 <body>
   <%- include('../navbar', {active: 'events'}); -%>
   <div class="container-fluid">
-      <main class="p-3">
-        <%_ if (event._id === "Calendar") { -%>
-          <h1>Calendar: </h1>
-          <%_ for (const e of allEvents) { -%>
-            <%_ if (e._id !== "Calendar") { -%>
-              <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e._id-%></a>
-              <p class="ml-3"><%=e.date-%></p>
-            <%_ } -%>
-          <%_ } -%>
-        <%_ } -%>
+    <main class="p-3">
 
-        <%_ if (event._id !== "Calendar") { -%>
-              <div class="row">
-              <div class="col-auto p-3 border-right">
-                <nav class="nav nav-pills flex-column">
-                  <%_ for (const id of allEvents) { -%>
-                    <%_ if (id._id !== "Calendar") { -%>
-                      <a href="/events/<%= id._id -%>" class="nav-item nav-link <%= id._id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id._id -%></a>
-                    <%_ } -%>
-                  <%_ } -%>
-                  </nav>
-                </div>
-                <div class="col">
-                  <h2><%= event._id -%></h2>
-                  <h4>People Invited: <%= event.people_invited-%></h4>
-                  <h4>Location: <%=event.location-%></h4>
-                  <p><%= event.description -%></p>
-                  <h2>Comments:</h2>
-                  <%_ for (const c of comments) { -%>
-                    <p><%-c.comment-%></p>
-                    <p>Posted By: <%-c._id-%></p>
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const id of allEvents) { -%>
+              <a href="/events/<%= id._id -%>" class="nav-item nav-link <%= id._id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id._id -%></a>
+              <%_ } -%>
+            </nav>
+          </div>
+          <div class="col">
+            <h2><%= event._id -%></h2>
+              <h4>People Invited: <%= event.people_invited-%></h4>
+              <h4>Location: <%=event.location-%></h4>
+              <p><%= event.description -%></p>
+              <h2>Comments:</h2>
+              <%_ for (const c of comments) { -%>
+                <p><%-c.comment-%></p>
+                <p>Posted By: <%-c._id-%></p>
 
-                  <%_ } -%>
+                <%_ } -%>
 
 
-                </div>
+              </div>
             </div>
-        <%_ } -%>
 
-
-      </main>
-  </div>
-</body>
-</html>
+          </main>
+        </div>
+      </body>
+      </html>

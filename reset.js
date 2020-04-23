@@ -10,7 +10,6 @@ connect();
 
 // Model a collection of courses
 const events = [
-  new Event({_id: 'Calendar', people_invited: '', location: '', organizer: '', date: new Date("2000-09-05T16:00:00Z"), description:''}),
   new Event({_id: 'Senior Streak', people_invited: 'Seniors', location: 'The Quad', organizer: 'Seniors', date: new Date("2019-08-29T20:00:00Z"), description:'All seniors streak across the quad (dont tell the freshmen)'}),
   new Event({_id: 'Raft Day', people_invited: 'Everyone', location: 'The River', organizer: 'OC', date: new Date("2019-09-05T16:00:00Z"), description:'A party at the river. Bring rafts and fun'}),
   new Event({_id: 'Titus', people_invited: 'Ticket Owners', location: 'Titus Mountain', organizer: 'OC', date: new Date("2020-03-14T10:00:00Z"), description:'A party at Titus mountain. Tickets selling for $30'}),
