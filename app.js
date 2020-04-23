@@ -31,7 +31,7 @@ app.get('/', function(request, response) {
   // events/index does not exsist
   //response.redirect('/events');
 
-  response.render('events/detail');
+  response.render('/events');
 });
 
 // Route content requests
