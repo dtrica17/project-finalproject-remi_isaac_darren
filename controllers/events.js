@@ -26,6 +26,7 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([event, allEvents, comments]) {
+    console.log(event)
     if (event) {
       //console.log(comments[0].comment);
       response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
