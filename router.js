@@ -29,6 +29,7 @@ router.delete('/events/:id', authorize, events.delete);
 router.put('/events/:id', authorize, events.update);
 
 /*
+// these were giving errors so i commented them out
 // Handle comments requests
 router.get('/comments', comments.index);
 router.get('/comments/:id', comments.retrieve);

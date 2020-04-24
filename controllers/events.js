@@ -10,6 +10,9 @@ module.exports.index = function(request, response, next) {
   Event.find().sort(order)
     //.then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
     //.then(allEvents => response.redirect(`events/Calendar`))
+    // set the current event to null
+    // in index it checks if event is null
+    // if so it will display the calendar
     .then(allEvents => response.render("events/index",{allEvents:allEvents, event: null}))
     .catch(error => next(error))
 };

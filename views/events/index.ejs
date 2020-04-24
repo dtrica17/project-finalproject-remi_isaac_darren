@@ -8,6 +8,7 @@
       <%_ if (event != null) { -%>
         <%- include('./browse', {allEvents: allEvents, event: event}); -%>
       <%_ } else {-%>
+        <!-- If an admin go to the admin page which allows for changing stuff this -->
         <%_ if (admin) { -%>
           <%- include('./edit', {allEvents: allEvents}); -%>
         <%_ } else { -%>
