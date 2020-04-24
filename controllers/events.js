@@ -25,11 +25,11 @@ module.exports.retrieve = function(request, response, next) {
     Comment.find().where('event').equals(request.params.id)
   ];
 
-  Promise.all(queries).then(function([event, allEvents, comments]) {
-    console.log(event)
-    if (event) {
+  Promise.all(queries).then(function([eve, allEvents, comments]) {
+    console.log(eve)
+    if (eve) {
       //console.log(comments[0].comment);
-      response.render('events/index', {event: event, allEvents: allEvents, comments: comments});
+      response.render('events/index', {event: eve, allEvents: allEvents, comments: comments});
     }
     else {
       next(); // No such Event
