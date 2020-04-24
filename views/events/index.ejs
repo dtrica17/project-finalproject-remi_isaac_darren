@@ -4,6 +4,7 @@
   <body>
     <%- include('../navbar', {active: 'events'}); -%>
     <main class="p-3">
+
       <%_ if (admin) { -%>
         <%- include('./edit', {allEvents: allEvents}); -%>
       <%_ } else { -%>
