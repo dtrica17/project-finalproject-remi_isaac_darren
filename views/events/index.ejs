@@ -7,8 +7,9 @@
       <!-- If given an event go to that page othersie -->
       <%_ if (event) { -%>
         <%- include('./browse', {allEvents: allEvents, event: eve}); -%>
-      }
-      <%_  if (admin) { -%>
+      <%_ } -%>
+
+      <%_ else if (admin) { -%>
         <%- include('./edit', {allEvents: allEvents}); -%>
       <%_ } else { -%>
         <%- include('./detail', {allEvents: allEvents}); -%>
