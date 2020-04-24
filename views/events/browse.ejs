@@ -1,10 +1,3 @@
-<div class="col-auto p-3 border-right">
-  <nav class="nav nav-pills flex-column">
-    <%_ for (const id of allEvents) { -%>
-      <a href="/events/<%= id._id -%>" class="nav-item nav-link <%= id._id === event.id ? 'active bg-dark' : 'inactive' -%>"><%= id._id -%></a>
-      <%_ } -%>
-    </nav>
-</div>
 <div class="">
   <h2><%= event._id -%></h2>
   <h4>People Invited: <%= event.people_invited-%></h4>

@@ -7,13 +7,14 @@
       <!-- If given an event go to that page othersie -->
       <%_ if (event != null) { -%>
         <%- include('./browse', {allEvents: allEvents, event: event}); -%>
+      <%_ } else {-%>
+        <%_ if (admin) { -%>
+          <%- include('./edit', {allEvents: allEvents}); -%>
+        <%_ } else { -%>
+          <%- include('./detail', {allEvents: allEvents}); -%>
+        <%_ } -%>
       <%_ } -%>
 
-      <%_ if (admin) { -%>
-        <%- include('./edit', {allEvents: allEvents}); -%>
-      <%_ } else { -%>
-        <%- include('./detail', {allEvents: allEvents}); -%>
-      <%_ } -%>
     </main>
     <%_ if (admin) { -%>
       <%- include('./scripts'); -%>
