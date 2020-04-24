@@ -6,7 +6,7 @@
     <main class="p-3">
       <!-- If given an event go to that page othersie -->
       <%_ if (event != null) { -%>
-        <%- include('./browse', {allEvents: allEvents, event: eve}); -%>
+        <%- include('./browse', {allEvents: allEvents, event: event}); -%>
       <%_ } -%>
 
       <%_ if (admin) { -%>
