@@ -42,7 +42,7 @@ module.exports.create = function(request, response, next){
   // creates an event out of the request.body
   Event.create(request.body)
   // update status to 201
-  .then(course => response.status(201).send(event.id))
+  .then(eve => response.status(201).send(eve.id))
   .catch(error => next(error))
 };
 
@@ -50,7 +50,7 @@ module.exports.delete = function(request, response, next) {
   // find an event by given ID and delete it
   Event.findByIdAndDelete(request.params.id)
     // if succesful response 200 otherwise next
-    .then(course => course ? response.status(200).end() : next())
+    .then(eve => eve ? response.status(200).end() : next())
     .catch(error => next(error));
 };
 
@@ -59,6 +59,6 @@ module.exports.update = function(request, response, next) {
   // find by specfic id and update it to body
   Course.findByIdAndUpdate(request.params.id, request.body)
   // if succesful 200 else next()
-    .then(course => course ? response.status(200).end() : next())
+    .then(eve => eve ? response.status(200).end() : next())
     .catch(error => next(error));
 };

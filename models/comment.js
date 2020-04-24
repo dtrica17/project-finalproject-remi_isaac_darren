@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Comment = new mongoose.Schema({
-  _id: String,
+  author: String,
   event: String,
   comment: String
 });
