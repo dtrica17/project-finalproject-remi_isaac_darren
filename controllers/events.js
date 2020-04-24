@@ -42,7 +42,7 @@ module.exports.create = function(request, response, next){
   // creates an event out of the request.body
   Event.create(request.body)
   // update status to 201
-  .then(course => response.status(201).send(course.id))
+  .then(course => response.status(201).send(event.id))
   .catch(error => next(error))
 };
 
