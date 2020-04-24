@@ -7,7 +7,7 @@
       <%_ if (admin) { -%>
         <%- include('./edit', {allEvents: allEvents}); -%>
       <%_ } else { -%>
-        <%- include('./browse', {allEvents: allEvents, order: order}); -%>
+        <%- include('./browse', {allEvents: allEvents}); -%>
       <%_ } -%>
     </main>
     <%_ if (admin) { -%>
