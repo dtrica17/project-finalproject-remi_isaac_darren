@@ -8,7 +8,9 @@ const Comment = require('../models/comment');
 module.exports.index = function(request, response, next) {
   const order = request.query.sort || '_id'; // Default to sort by course
   Event.find().sort(order)
-    .then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
+    //.then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
+    .then(allEvents => response.redirect(`events/Calendar`))
+
     //.then(allEvents => response.render("events/detail",{allEvents:allEvents}))
     .catch(error => next(error))
 };
@@ -30,9 +32,12 @@ module.exports.retrieve = function(request, response, next) {
       //console.log(comments[0].comment);
       response.render('events/index', {event: eve, allEvents: allEvents, comments: comments});
     }
-    else {
+    if(eve === "Calendar") {
       response.render("events/detail",{allEvents:allEvents});
       //next(); // No such Event
+    }
+    else{
+      next()
     }
   }).catch(error => next(error));
 };
