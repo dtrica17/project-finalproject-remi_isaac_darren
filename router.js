@@ -24,7 +24,7 @@ const authorize = function(request, response, next) {
 // Handle events requests
 router.get('/events', events.index);
 router.get('/events/:id', events.retrieve);
-router.post('/events', authorize, events.create);
+//router.post('/events', authorize, events.create);
 router.delete('/events/:id', authorize, events.delete);
 router.put('/events/:id', authorize, events.update);
 
