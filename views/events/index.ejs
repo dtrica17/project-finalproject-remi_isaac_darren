@@ -9,7 +9,7 @@
         <%- include('./browse', {allEvents: allEvents, event: eve}); -%>
       <%_ } -%>
 
-      <%_ else if (admin) { -%>
+      <%_ if (admin) { -%>
         <%- include('./edit', {allEvents: allEvents}); -%>
       <%_ } else { -%>
         <%- include('./detail', {allEvents: allEvents}); -%>
