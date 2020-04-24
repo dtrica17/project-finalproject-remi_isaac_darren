@@ -10,7 +10,7 @@ module.exports.index = function(request, response, next) {
   Event.find().sort(order)
     //.then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
     //.then(allEvents => response.redirect(`events/Calendar`))
-    .then(allEvents => response.render("events/index",{allEvents:allEvents}))
+    .then(allEvents => response.render("events/index",{allEvents:allEvents, event: null}))
     .catch(error => next(error))
 };
 //Get /events/Calendar
