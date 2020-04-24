@@ -24,17 +24,18 @@ const authorize = function(request, response, next) {
 // Handle events requests
 router.get('/events', events.index);
 router.get('/events/:id', events.retrieve);
-//router.post('/events', authorize, events.create);
+router.post('/events', authorize, events.create);
 router.delete('/events/:id', authorize, events.delete);
 router.put('/events/:id', authorize, events.update);
 
+/*
 // Handle comments requests
 router.get('/comments', comments.index);
 router.get('/comments/:id', comments.retrieve);
 router.post('/comments', authorize, comments.create);
 router.delete('/comments/:id', authorize, comments.delete);
 router.put('/comments/:id', authorize, comments.update);
-
+*/
 // Handle users requests
 router.get('/users', users.index);
 router.get('/users/:id', users.retrieve);
