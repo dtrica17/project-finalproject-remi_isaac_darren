@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'events'}); -%>
+    <main class="p-3">
+      <form method="post" action="/login">
+        <p>
+          <label>Username:</label>
+          <input type="text" name="username">
+        </p>
+      </form>
+    </main>
+  </body>
+</html>
