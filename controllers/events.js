@@ -31,7 +31,7 @@ module.exports.retrieve = function(request, response, next) {
       response.render('events/index', {event: eve, allEvents: allEvents, comments: comments});
     }
     else {
-      .then(response.render("events/detail",{allEvents:allEvents})
+      response.render("events/detail",{allEvents:allEvents});
       //next(); // No such Event
     }
   }).catch(error => next(error));
