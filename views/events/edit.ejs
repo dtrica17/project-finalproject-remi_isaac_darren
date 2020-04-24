@@ -1,0 +1,11 @@
+<%_ for (const eve of events) { -%>
+  <form id="<%= eve.id -%>" class="form-inline">
+    <input type="text" name="event" value="<%= eve._id -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="description" value="<%= eve.description -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="time" value="<%= eve.time12 -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="location" value="<%= eve.location -%>" class="form-control form-control-sm m-1">
+    <button class="update btn btn-sm btn-primary m-1">Save</button>
+    <button class="delete btn btn-sm btn-primary m-1">Delete</button>
+  </form>
+<%_ } -%>
+<button id="insert" class="btn btn-sm btn-primary m-1">New section</button>
