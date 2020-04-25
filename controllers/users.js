@@ -29,7 +29,7 @@ router.post('/register',function(req, res){
         return;
       }else{
         req.flash('success', 'you are registered and can log in');
-        res.redirect('/user/login');
+        res.redirect('/users/login');
       }
     }); // I think this is in the correct place
   }
