@@ -51,11 +51,21 @@ app.get('/', function(request, response) {
   //response.render('index');
 });
 
+let Comment = require('./models/comment')
 // Get a single article
 app.get('/events/:id',function(req,res){
-  Event.findById(req.params.id)
-  .then(eve => res.render('events/browse',{event:eve}))
-  .catch(err => next(err))
+  const queries = [
+    Event.findById(request.params.id),
+    Comment.find().where('event').equals(request.params.id)
+  ];
+  Promise.all(queries).then(function([eve, comments]) {
+    if (eve) {
+      response.render('events/browse', {event: eve,comments: comments});
+    }
+    else{
+      next()
+    }
+  }).catch(error => next(error));
 })
 
 // add router
