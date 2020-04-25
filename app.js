@@ -48,7 +48,7 @@ app.get('/', function(request, response) {
 });
 
 //Routing to login page
-app.use('/login', require('./controllers/users.js'));
+//app.use('/login', require('./controllers/users.js'));
 
 
 // NEW

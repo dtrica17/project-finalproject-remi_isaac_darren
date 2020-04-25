@@ -1,11 +1,6 @@
 const User = require('../models/user');
 
 
-module.exports.index = function(request, response) {
-  response.send('GET /users');
-};
-
-
 // get a specfic login
 module.exports.retrieve = function(request, response) {
   const user = Users.find(u => u.id === request.params.id);
