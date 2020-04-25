@@ -38,7 +38,7 @@ router.delete('/comments/:id', authorize, comments.delete);
 router.put('/comments/:id', authorize, comments.update);
 */
 // Handle users requests
-router.get('/users', users.index);
+//router.get('/users', users.index);
 router.get('/users/:id', users.retrieve);
 // router.post('/users', authorize, users.create);
 // router.delete('/users/:id', authorize, users.delete);
