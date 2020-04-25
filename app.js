@@ -60,7 +60,7 @@ app.get('/events/:id',function(req,res){
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
-      response.render('events/browse', {event: eve,comments: comments});
+      res.render('events/browse', {event: eve,comments: comments});
     }
   }).catch(error => console.log(error));
 })
