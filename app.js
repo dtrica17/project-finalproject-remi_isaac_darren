@@ -45,7 +45,7 @@ let Event = require('./models/event');
 app.get('/', function(request, response) {
   Event.find()
   // events/index does not exsist
-  .then(allEvents => response.render('detail',{allEvents: allEvents}));
+  .then(allEvents => response.render('detail',{allEvents: allEvents}))
   .catch(error => next(error))
   //response.redirect('/calendar')
   //response.render('index');
