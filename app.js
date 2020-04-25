@@ -75,7 +75,7 @@ app.get('/events/add',function(req, res){
 // add Submit post route
 app.post('/events/add', function(req,res){
   let event = new Event();
-  event._id = req.body.title;
+  event.name = req.body.title;
   event.people_invited = req.body.people_invited;
   event.location = req.body.location;
   event.date = req.body.date;   // this prolly wont work right
@@ -95,7 +95,7 @@ app.post('/events/add', function(req,res){
 // Update submit
 app.post('/events/edit/:id', function(req,res){
   let event = {}
-  event._id = req.body.title;
+  event.name = req.body.title;
   event.people_invited = req.body.people_invited;
   event.location = req.body.location;
   event.date = req.body.date;   // this prolly wont work right

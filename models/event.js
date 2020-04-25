@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Event = new mongoose.Schema({
-  _id: String,
+  name: String,
   people_invited: String,
   location: String,
   organizer: String,
