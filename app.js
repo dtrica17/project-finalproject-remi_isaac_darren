@@ -55,8 +55,8 @@ let Comment = require('./models/comment')
 // Get a single article
 app.get('/events/:id',function(req,res){
   const queries = [
-    Event.findById(request.params.id),
-    Comment.find().where('event').equals(request.params.id)
+    Event.findById(req.params.id),
+    Comment.find().where('event').equals(req.params.id)
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
