@@ -2,6 +2,10 @@
   <h2><%= event._id -%></h2>
   <h4>People Invited: <%= event.people_invited-%></h4>
   <h4>Location: <%=event.location-%></h4>
+  <h4>Date: </h4>
+  <p><%=event.date.getDate()-%></p>
+  <p><%=event.date.getMonth()-%></p>
+
   <p><%= event.description -%></p>
   <h2>Comments:</h2>
   <%_ for (const c of comments) { -%>
