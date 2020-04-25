@@ -65,6 +65,8 @@ app.get('/events/:id',function(req,res){
   }).catch(error => console.log(error));
 })
 
+
+
 // add router
 app.get('/events/add',function(req, res){
   res.render('events/add');
@@ -90,7 +92,20 @@ app.post('/events/add', function(req,res){
   })
 })
 
-
+// load edit form
+app.get('/events/edit/:id',function(req,res){
+  const queries = [
+    Event.findById(req.params.id),
+    Comment.find().where('event').equals(req.params.id)
+  ];
+  Promise.all(queries).then(function([eve, comments]) {
+    if (eve) {
+      res.render('events/edit_event', {
+        event: eve,
+        comments: comments});
+    }
+  }).catch(error => console.log(error));
+})
 
 // NEW
 // Enter admin mode and return to the previous page
