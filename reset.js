@@ -19,9 +19,9 @@ const events = [
 
 // Model a collection of sections
 const users = [
-  new User({_id: 'OC'}),
-  new User({_id: 'Seniors'}),
-  new User({_id: 'ACE'}),
+  new User({username: 'OC'}),
+  new User({username: 'Seniors'}),
+  new User({username: 'ACE'}),
 ];
 
 const comments = [

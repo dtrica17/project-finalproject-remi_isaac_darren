@@ -62,9 +62,9 @@ app.get('/events/:id',function(req,res){
     if (eve) {
       response.render('events/browse', {event: eve,comments: comments});
     }
-    else{
-      next()
-    }
+    // else{
+    //   next()
+    // }
   }).catch(error => next(error));
 })
 
