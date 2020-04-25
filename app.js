@@ -60,7 +60,7 @@ app.get('/', function(request, response) {
 // });
 
 //Routing to login page
-app.use('/login', require('./views/users.js'));
+//app.use('/login', require('./views/users.js'));
 
 // Exit admin mode and return to the previous page
 app.get('/logout', function(request, response) {
