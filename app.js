@@ -65,7 +65,7 @@ app.post('/events/add', function(req,res){
   event.date = req.body.date;   // this prolly wont work right
   event.description = req.body.description;
 
-  event.save(function(err)){
+  event.save(function(err){
     if(err){
       console.log(err);
       return;
@@ -73,7 +73,7 @@ app.post('/events/add', function(req,res){
     else{
       res.redirect('/');
     }
-  }
+  })
 })
 
 
