@@ -62,10 +62,7 @@ app.get('/events/:id',function(req,res){
     if (eve) {
       response.render('events/browse', {event: eve,comments: comments});
     }
-    // else{
-    //   next()
-    // }
-  }).catch(error => next(error));
+  }).catch(error => console.log(error));
 })
 
 // add router
