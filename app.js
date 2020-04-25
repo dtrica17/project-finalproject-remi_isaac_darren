@@ -58,8 +58,9 @@ app.get('/events/add',function(req, res){
 
 // add Submit post route
 app.post('/events/add', function(req,res){
-  console.log('submitted');
-  return;
+  // let event = new Event();
+  // event._id = req.body.title;
+  console.log(req.body.title);
 })
 
 
