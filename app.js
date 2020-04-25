@@ -55,7 +55,7 @@ app.get('/', function(request, response) {
 app.get('/events/:id',function(req,res){
   Event.findByID(req.params.id)
   .then(eve => res.render('browse',{event:eve})
-  .catch(err => next.err)
+  .catch(err => next(err))
 })
 
 // add router
