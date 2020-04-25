@@ -40,7 +40,7 @@ app.use(function(request, response, next) {
 });
 
 
-const Event = require('../models/event');
+const Event = require('./models/event');
 // Redirect from the home page
 app.get('/', function(request, response) {
   Event.find()
