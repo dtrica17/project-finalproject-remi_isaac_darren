@@ -53,7 +53,7 @@ app.get('/', function(request, response) {
 
 // Get a single article
 app.get('/events/:id',function(req,res){
-  Event.findByID(req.params.id)
+  Event.findById(req.params.id)
   .then(eve => res.render('browse',{event:eve}))
   .catch(err => next(err))
 })
