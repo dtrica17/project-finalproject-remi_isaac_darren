@@ -39,14 +39,20 @@ app.use(function(request, response, next) {
   next();
 });
 
+
+const Event = require('../models/event');
 // Redirect from the home page
 app.get('/', function(request, response) {
+  Event.find()
   // events/index does not exsist
-  response.redirect('/events');
+  .then(allEvents => response.render('detail',{allEvents: allEvents}));
   //response.redirect('/calendar')
   //response.render('index');
 });
 
+app.get('/calendar', function(req,res){
+  response.render('detail')
+})
 
 
 
@@ -79,6 +85,8 @@ app.use(function(request, response, next) {
 // anything that uses users has to go to controllers/users
 let users = require('./controllers/users')
 app.use('/users', users)
+let users = require('./controllers/events')
+app.use('/events', events)
 
 // Handle undefined routes
 app.use(function(request, response) {

@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router();
-
 const User = require('../models/user');
 
+//connect();
 // Register form
 router.get('/register', function(req, res){
   res.render('register')

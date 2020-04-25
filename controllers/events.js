@@ -1,8 +1,12 @@
 // Controller for the event collection.
 const Event = require('../models/event');
 const Comment = require('../models/comment');
+const router = express.Router();
 
-
+router.get('/calendar', function(req, res){
+  .Event.find()
+  .then(allEvents => res.render('detail'),{allEvents:allEvents});
+});
 
 // GET /events
 module.exports.index = function(request, response, next) {

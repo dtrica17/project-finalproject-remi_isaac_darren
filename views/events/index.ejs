@@ -4,17 +4,13 @@
   <body>
     <%- include('../navbar', {active: 'events'}); -%>
     <main class="p-3">
-      <!-- If given an event go to that page othersie -->
-      <%_ if (event != null) { -%>
-        <%- include('./browse', {allEvents: allEvents, event: event}); -%>
-      <%_ } else {-%>
         <!-- If an admin go to the admin page which allows for changing stuff this -->
         <%_ if (admin) { -%>
           <%- include('./edit', {allEvents: allEvents}); -%>
         <%_ } else { -%>
-          <%- include('./detail', {allEvents: allEvents}); -%>
+          <%- include('./browse', {allEvents: allEvents, event: event}); -%>
         <%_ } -%>
-      <%_ } -%>
+
 
     </main>
     <%_ if (admin) { -%>
