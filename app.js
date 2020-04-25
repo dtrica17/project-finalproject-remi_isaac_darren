@@ -56,6 +56,12 @@ app.get('/events/add',function(req, res){
   res.render('events/add');
 });
 
+// add Submit post route
+app.post('/events/add', function(req,res){
+  console.log('submitted');
+  return;
+})
+
 
 
 // NEW
