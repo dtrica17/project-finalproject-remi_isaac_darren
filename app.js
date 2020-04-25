@@ -76,7 +76,9 @@ app.use(function(request, response, next) {
 // NEW END
 
 // Route content requests
-app.use('/', router);
+// anything that uses users has to go to controllers/users
+let users = require('./controllers/users')
+app.use('/users', users)
 
 // Handle undefined routes
 app.use(function(request, response) {
