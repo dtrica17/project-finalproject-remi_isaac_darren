@@ -1,10 +1,10 @@
 <header class="navbar navbar-expand navbar-dark bg-dark">
   <h1 class="navbar-brand">Non Academic Events</h1>
   <nav class="navbar-nav ml-3">
-    <a href="/events" class="nav-item nav-link <%= active === 'browse' ? 'active' : 'inactive' -%>">Calendar</a>
+    <a href="/events" class="nav-item nav-link">Calendar</a>
     <!-- These below need to be changed to help the user create and view their events -->
-    <a href="/events" class="nav-item nav-link <%= active === 'detail' ? 'active' : 'inactive' -%>">My Events</a>
-    <a href="/events" class="nav-item nav-link <%= active === 'detail' ? 'active' : 'inactive' -%>">Create Event</a>
+    <a href="/events" class="nav-item nav-link">My Events</a>
+    <a href="/events" class="nav-item nav-link">Create Event</a>
 
 
   </nav>
@@ -13,8 +13,8 @@
     <%_ if (admin) { -%>
       <a href="/logout" class="nav-item nav-link">Logout</a>
     <%_ } else { -%>
-      <a href="/users/Login" class="nav-item nav-link <%= active === 'login' ? 'active' : 'inactive' -%>">Login</a>
-      <a href="/users/register" class="nav-item nav-link <%= active === 'register' ? 'active' : 'inactive' -%>">Register</a>
+      <a href="/users/Login" class="nav-item nav-link">Login</a>
+      <a href="/users/register" class="nav-item nav-link">Register</a>
 
     <%_ } -%>
   </nav>
