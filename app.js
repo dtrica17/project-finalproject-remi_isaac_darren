@@ -40,12 +40,13 @@ app.use(function(request, response, next) {
 });
 
 
-const Event = require('./models/event');
+let Event = require('./models/event');
 // Redirect from the home page
 app.get('/', function(request, response) {
   Event.find()
   // events/index does not exsist
   .then(allEvents => response.render('detail',{allEvents: allEvents}));
+  .catch(error => next(error))
   //response.redirect('/calendar')
   //response.render('index');
 });
