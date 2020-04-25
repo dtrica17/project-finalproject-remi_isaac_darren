@@ -4,7 +4,7 @@ const Comment = require('../models/comment');
 const router = express.Router();
 
 router.get('/calendar', function(req, res){
-  .Event.find()
+  Event.find()
   .then(allEvents => res.render('detail'),{allEvents:allEvents});
 });
 
