@@ -1,6 +1,7 @@
 // Controller for the event collection.
 const Event = require('../models/event');
 const Comment = require('../models/comment');
+const express = require('express');
 const router = express.Router();
 
 router.get('/calendar', function(req, res){
