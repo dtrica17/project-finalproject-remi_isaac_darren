@@ -7,26 +7,26 @@
   <div class="container-fluid">
       <main class="p-3">
         <h1>Add Event: </h1>
-        <form class="" action='/events/edit/'+article.id method="post">
+        <form class="" action='/events/edit/<%= eve._id -%>'method="post">
           <div class="form-group">
             <label for="Title">Title</label>
-            <input type="text" name="Title" value=article._id>
+            <input type="text" name="Title" value=<%= eve._id -%>>
           </div>
           <div class="form-group">
             <label for="Title">People Invited: </label>
-            <input type="text" name="people_invited" value="">
+            <input type="text" name="people_invited" value="<%= eve.people_invited -%>">
           </div>
           <div class="form-group">
             <label for="Title">Location: </label>
-            <input type="text" name="location" value="">
+            <input type="text" name="location" value="<%= eve.location -%>">
           </div>
           <div class="form-group">
             <label for="Title">Date: </label>
-            <input type="date" name="date" value="">
+            <input type="date" name="date" value="<%= eve.date -%>">
           </div>
           <div class="form-group">
             <label for="Title">Description: </label>
-            <input type="textarea" name="description" value="">
+            <input type="textarea" name="description" value="<%= eve.description -%>">
           </div>
           <input class="btn btn-primary" type="submit" name="" value="submit">
         </form>
