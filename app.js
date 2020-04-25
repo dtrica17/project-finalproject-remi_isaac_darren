@@ -50,9 +50,10 @@ app.get('/', function(request, response) {
   //response.render('index');
 });
 
-app.get('/calendar', function(req,res){
-  response.render('detail')
-})
+// add router
+app.get('/events/add',function(req, res){
+  res.render('events/add');
+});
 
 
 
