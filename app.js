@@ -84,10 +84,10 @@ app.use(function(request, response, next) {
 
 // Route content requests
 // anything that uses users has to go to controllers/users
-let users = require('./controllers/users')
-app.use('/users', users)
-let events = require('./controllers/events')
-app.use('/events', events)
+// let users = require('./controllers/users')
+// app.use('/users', users)
+// let events = require('./controllers/events')
+// app.use('/events', events)
 
 // Handle undefined routes
 app.use(function(request, response) {
