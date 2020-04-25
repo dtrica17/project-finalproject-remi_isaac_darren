@@ -92,6 +92,28 @@ app.post('/events/add', function(req,res){
   })
 })
 
+// Update submit
+app.post('/events/edit/:id', function(req,res){
+  let event = {}
+  event._id = req.body.title;
+  event.people_invited = req.body.people_invited;
+  event.location = req.body.location;
+  event.date = req.body.date;   // this prolly wont work right
+  event.description = req.body.description;
+
+  let query = {_id:req.params.id}
+
+  Event.update(query, event, function(err){
+    if(err){
+      console.log(err);
+      return;
+    }
+    else{
+      res.redirect('/');
+    }
+  })
+})
+
 // load edit form
 app.get('/events/edit/:id',function(req,res){
   const queries = [
