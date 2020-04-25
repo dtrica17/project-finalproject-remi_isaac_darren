@@ -47,18 +47,20 @@ app.get('/', function(request, response) {
   //response.render('index');
 });
 
-//Routing to login page
-//app.use('/login', require('./controllers/users.js'));
+
 
 
 // NEW
 // Enter admin mode and return to the previous page
 // I think this automatically makes you admin instead we need a way
 // for an individual to log in
-app.get('/login', function(request, response) {
-  request.session.admin = true;
-  response.redirect('back');
-});
+// app.get('/login', function(request, response) {
+//   request.session.admin = true;
+//   response.redirect('back');
+// });
+
+//Routing to login page
+app.use('/login', require('./views/users.js'));
 
 // Exit admin mode and return to the previous page
 app.get('/logout', function(request, response) {
