@@ -101,7 +101,7 @@ app.get('/events/edit/:id',function(req,res){
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
       res.render('events/edit_event', {
-        event: eve,
+        eve: eve,
         comments: comments});
     }
   }).catch(error => console.log(error));
