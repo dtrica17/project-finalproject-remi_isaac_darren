@@ -51,6 +51,13 @@ app.get('/', function(request, response) {
   //response.render('index');
 });
 
+// Get a single article
+app.get('/events/:id',function(req,res){
+  Event.findByID(req.params.id)
+  .then(event => console.log(event))
+  .catch(err => next.err)
+})
+
 // add router
 app.get('/events/add',function(req, res){
   res.render('events/add');
