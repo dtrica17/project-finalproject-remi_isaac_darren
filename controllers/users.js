@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router();
 const User = require('../models/user');
-const passport = require('passport');
 
 // Register form
 router.get('/register', function(req, res){
@@ -51,13 +50,9 @@ router.post('/login',function(req,res,next){
   // if that user exsists
   // go to home page
   if(User.find(req.body.username)){
-    res.render('/');
+    res.redirect('/');
   }
-  // passport.authenticate('local', {
-  //   successRedirect:'/',
-  //   failureRedirect:'/users/login',
-  //   failureFlash: false
-  // })(req,res, next);
+
 });
 
 module.exports = router;

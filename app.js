@@ -2,11 +2,8 @@ const express = require('express');
 const session = require('express-session')
 //const router = require('./router');
 const connect = require('./db');
-const passport = require('passport');
-const config = require('./config/database');
-const mongoose = require('mongoose');
 
-mongoose.connect(config.database);
+
 // connect to db
 connect();
 
@@ -89,13 +86,6 @@ app.use(function(request, response, next) {
   next();
 });
 // NEW END
-
-// Passport configure
-require('./config/passport')(passport);
-// Passport middle ware
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 // Route content requests
 // anything that uses users has to go to controllers/users
