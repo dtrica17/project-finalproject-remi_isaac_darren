@@ -42,7 +42,7 @@ router.post('/register',function(req, res){
 });
 
 router.get('/login',function(req, res){
-  res.render('login');
+  console.log(User.find()).then(res.render('login'));
 });
 
 // login process
@@ -50,7 +50,7 @@ router.post('/login',function(req,res,next){
   passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect:'/users/login',
-    failureFlash: true
+    failureFlash: false
   })(req,res, next);
 });
 
