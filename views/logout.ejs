@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include('./head'); -%>
+  <body>
+    <%- include('./navbar'); -%>
+    <h1>Logout</h1>
+    <form class="" action="/users/logout" method="post">
+      <label for="">Logout as <%=e.username-%></label>
+      <!-- Need to add the button below -->
+      <button type="submit" class="btn btn-warning">Logout</button>
+    </form>
+  </body>
+</html>

@@ -46,6 +46,23 @@ router.get('/login',function(req, res){
    .then(allUsers => res.render('login', {allUsers: allUsers}))
 });
 
+//logout
+router.get('/logout',function(req,res){
+  if(req.session.user == null){
+    res.redirect('/');
+  }
+  res.render('logout',{user:req.session.user});
+});
+
+router.post('/logout',function(req,res,next){
+  req.session.user = null;
+  console.log("Successful logout");
+  res.redirect('/');
+
+
+});
+
+
 // login process
 router.post('/login',function(req,res,next){
   queries = [
