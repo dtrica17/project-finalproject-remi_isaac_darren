@@ -4,18 +4,7 @@ const Comment = require('../models/comment');
 const express = require('express');
 const router = express.Router();
 
-// Get a single article
-router.get('/:id',function(req,res){
-  const queries = [
-    Event.findById(req.params.id),
-    Comment.find().where('event').equals(req.params.id)
-  ];
-  Promise.all(queries).then(function([eve, comments]) {
-    if (eve) {
-      res.render('events/browse', {event: eve,comments: comments});
-    }
-  }).catch(error => console.log(error));
-})
+
 
 
 
@@ -89,5 +78,19 @@ router.get('/edit/:id',function(req,res){
     }
   }).catch(error => console.log(error));
 })
+
+// Get a single article
+// this needs to be at the bottoms
+router.get('/:id',function(req,res){
+  const queries = [
+    Event.findById(req.params.id),
+    Comment.find().where('event').equals(req.params.id)
+  ];
+  Promise.all(queries).then(function([eve, comments]) {
+    if (eve) {
+      res.render('events/browse', {event: eve,comments: comments});
+    }
+  }).catch(error => console.log(error));
+});
 
 module.exports = router;
