@@ -6,7 +6,7 @@ const Event = new mongoose.Schema({
   name: String,
   people_invited: String,
   location: String,
-  organizer: String,
+  organizer: User,
   date: String,    // not sure this is how
   description: String
 
