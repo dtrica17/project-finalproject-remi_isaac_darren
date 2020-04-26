@@ -8,22 +8,20 @@ const User = require('./models/user');
 // Connect to the database
 connect();
 
+// Model a collection of courses
+const events = [
+  new Event({name: 'Senior Streak', people_invited: 'Seniors', location: 'The Quad', organizer: 'Seniors', date:"2019-08-29", description:'All seniors streak across the quad (dont tell the freshmen)'}),
+  new Event({name: 'Raft Day', people_invited: 'Everyone', location: 'The River', organizer: 'OC', date:"2019-09-05", description:'A party at the river. Bring rafts and fun'}),
+  new Event({name: 'Titus', people_invited: 'Ticket Owners', location: 'Titus Mountain', organizer: 'OC', date:"2020-03-14", description:'A party at Titus mountain. Tickets selling for $30'}),
+  new Event({name: 'Spring Fest', people_invited: 'Everyone', location: 'Intramural Field', organizer: 'ACE', date:"2020-04-15", description:'Huge concert! No drinks allowed!'})
 
+];
 
 // Model a collection of sections
 const users = [
   new User({name: 'Isaac', username: 'OC'}),
   new User({name: 'Remi',username: 'Seniors'}),
   new User({name: 'Darren',username: 'ACE'}),
-];
-
-// Model a collection of courses
-const events = [
-  new Event({name: 'Senior Streak', people_invited: 'Seniors', location: 'The Quad', organizer: users[1], date:"2019-08-29", description:'All seniors streak across the quad (dont tell the freshmen)'}),
-  new Event({name: 'Raft Day', people_invited: 'Everyone', location: 'The River', organizer: users[0], date:"2019-09-05", description:'A party at the river. Bring rafts and fun'}),
-  new Event({name: 'Titus', people_invited: 'Ticket Owners', location: 'Titus Mountain', organizer: users[0], date:"2020-03-14", description:'A party at Titus mountain. Tickets selling for $30'}),
-  new Event({name: 'Spring Fest', people_invited: 'Everyone', location: 'Intramural Field', organizer: users[2], date:"2020-04-15", description:'Huge concert! No drinks allowed!'})
-
 ];
 
 const comments = [
