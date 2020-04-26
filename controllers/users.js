@@ -47,15 +47,20 @@ router.get('/login',function(req, res){
 
 // login process
 router.post('/login',function(req,res,next){
+  query = [User.find().where('username').equals(req.body.username)]
   // if that user exsists
-  // go to home page
-  if(User.find().where('username').equals(req.body.username)){
-    res.redirect('/');
-  }
-  else{
-    // this could be a flash
-    console.log("No user found");
-  }
+  Promise.all(query)
+  .then(function(result){
+    // go to home page
+    if(result.Length() > 0)
+      res.redirect('/');
+    }
+    else{
+      // this could be a flash
+      console.log("No user found");
+    }
+  })
+
 
 });
 
