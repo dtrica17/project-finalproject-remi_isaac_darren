@@ -52,14 +52,15 @@ router.post('/login',function(req,res,next){
   Promise.all(query)
   .then(function(result){
     // go to home page
-    if(result.length > 0)
+    if(result.length > 0){
       res.redirect('/');
     }
     else{
       // this could be a flash
       console.log("No user found");
     }
-});
+  })
+})
 
 
 module.exports = router;
