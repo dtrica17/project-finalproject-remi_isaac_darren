@@ -1,6 +1,5 @@
 // Model for the event collection.
 const mongoose = require('mongoose');
-const User = require('../models/user');
 
 // Define the schema
 const Event = new mongoose.Schema({
