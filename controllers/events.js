@@ -15,6 +15,7 @@ router.get('/myEvents',function(req,res){
   Promise.all(queries).then(function([myEvents]) {
   res.render('events/myEvents',{user: req.session.user, myEvents: myEvents})
 });
+});
 
 
 // add router
