@@ -48,12 +48,16 @@ router.get('/login',function(req, res){
 
 // login process
 router.post('/login',function(req,res,next){
-  console.log("body: " + req.body);
-  passport.authenticate('local', {
-    successRedirect:'/',
-    failureRedirect:'/users/login',
-    failureFlash: false
-  })(req,res, next);
+  // if that user exsists
+  // go to home page
+  if(User.find(req.body.username)){
+    res.render('/');
+  }
+  // passport.authenticate('local', {
+  //   successRedirect:'/',
+  //   failureRedirect:'/users/login',
+  //   failureFlash: false
+  // })(req,res, next);
 });
 
 module.exports = router;
