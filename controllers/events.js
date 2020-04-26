@@ -9,12 +9,18 @@ const router = express.Router();
 
 
 router.get('/myEvents',function(req,res){
-  query = [
-    Event.find().where('organizer').Equals(req.session.user)
-  ]
-  Promise.all(queries).then(function([myEvents]) {
-  res.render('events/myEvents',{user: req.session.user, myEvents: myEvents})
-});
+  if(req.session.user){
+      query = [
+        Event.find().where('organizer').equals(req.session.user)
+      ]
+      Promise.all(queries).then(function([myEvents]) {
+      res.render('events/myEvents',{user: req.session.user, myEvents: myEvents})
+    });
+  } else{
+    console.log('not logged in');
+    res.redirect('/');
+  }
+
 });
 
 
