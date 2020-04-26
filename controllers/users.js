@@ -42,7 +42,7 @@ router.post('/register',function(req, res){
 });
 
 router.get('/login',function(req, res){
-   Users.find()
+   User.find()
    res.render('/users')
 });
 
