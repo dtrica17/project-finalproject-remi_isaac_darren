@@ -1,20 +1,25 @@
-<div class="">
-  <h2><%= event.name -%></h2>
-  <h4>People Invited: <%= event.people_invited-%></h4>
-  <h4>Location: <%=event.location-%></h4>
-  <h4>Date: </h4>
-  <p><%=event.date-%></p>
+<%- include('../head'); -%>
+<body>
+  <%- include('../navbar'); -%>
 
-  <p><%= event.description -%></p>
-  <h2>Comments:</h2>
-  <%_ for (const c of comments) { -%>
-    <p><%-c.comment-%></p>
-    <p>Posted By: <%-c.author-%></p>
+  <div class="">
+    <h2><%= event.name -%></h2>
+    <h4>People Invited: <%= event.people_invited-%></h4>
+    <h4>Location: <%=event.location-%></h4>
+    <h4>Date: </h4>
+    <p><%=event.date-%></p>
 
-  <%_ } -%>
-  <%# If owner { %>
-    <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
-    <a href="#"<button class="btn btn-danger delete-eve" id='<%= event._id-%>'>Delete</button></a>
+    <p><%= event.description -%></p>
+    <h2>Comments:</h2>
+    <%_ for (const c of comments) { -%>
+      <p><%-c.comment-%></p>
+      <p>Posted By: <%-c.author-%></p>
 
-  <%# } %>
-</div>
+    <%_ } -%>
+    <%# If owner { %>
+      <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
+      <a href="#"<button class="btn btn-danger delete-eve" id='<%= event._id-%>'>Delete</button></a>
+
+    <%# } %>
+  </div>
+</body>
