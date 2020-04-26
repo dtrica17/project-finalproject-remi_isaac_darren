@@ -51,7 +51,7 @@ router.post('/login',function(req,res,next){
     User.find().where('username').equals(req.body.username)
   ];
   // if that user exsists
-  Promise.all(query).then(function(result){
+  Promise.all(queries).then(function(result){
     console.log(result)
     // go to home page
     if(result.length > 0){
