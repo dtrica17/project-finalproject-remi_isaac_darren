@@ -1,12 +1,13 @@
 const LoalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
-const config = require('../config/database')
+const config = require('../config/database');
 
 
 module.exports = function(passport){
   // local stradegy
   passport.use(new LocalStrategy(function(username, done){
-    let query = username:username
+    // match the username
+    let query = {username: username}
     User.findOne(query, function(err,user){
       if(err) throw err;
       if(!user){
