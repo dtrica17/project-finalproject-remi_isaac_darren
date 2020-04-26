@@ -118,6 +118,14 @@ app.post('/events/edit/:id', function(req,res){
   })
 })
 
+app.delete('/event/:id', function(req, res){
+  let query = {_id:req.params.id}
+  Event.remove(query, function(err){
+    if(err){console.log(err)}
+    res.send('Success');
+  })
+})
+
 // load edit form
 app.get('/events/edit/:id',function(req,res){
   const queries = [
