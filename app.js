@@ -56,7 +56,7 @@ app.get('/', function(request, response) {
 });
 
 // Route files
-let events = './controllers/events';
+let events = require('./controllers/events');
 // anything that starts /events will go to above file
 app.use('/events',events);
 

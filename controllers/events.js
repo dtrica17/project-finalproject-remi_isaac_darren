@@ -4,7 +4,6 @@ const Comment = require('../models/comment');
 const express = require('express');
 const router = express.Router();
 
-let Comment = require('./models/comment')
 // Get a single article
 router.get('/:id',function(req,res){
   const queries = [
