@@ -18,10 +18,11 @@
       <p>Posted By: <%-c.author-%></p>
 
     <%_ } -%>
-    <%_ if(owner.username == event.organizer) { -%>
-      <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
-      <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
-
+    <%_ if(owner) { -%>
+      <%_ if(owner.username === event.organizer) { -%>
+        <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
+        <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
+      <%_ } -%>
     <%_ } -%>
   </div>
 </body>
