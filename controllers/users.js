@@ -44,7 +44,7 @@ router.post('/register',function(req, res){
 router.get('/login',function(req, res){
   res.render('login')
   .then(Users.find())
-  .then(results => console.log('Users: ', results[0].map(p => p.name))
+  .then(results => console.log('Users: ', results[0].map(p => p.name)))
 });
 
 // login process
