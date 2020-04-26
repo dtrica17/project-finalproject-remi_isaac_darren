@@ -42,7 +42,9 @@ router.post('/register',function(req, res){
 });
 
 router.get('/login',function(req, res){
-  console.log(User.find()).then(res.render('login'));
+  User.find()
+  .then(res.render('login'))
+  .then(console.log(User.find()))
 });
 
 // login process
