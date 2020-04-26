@@ -6,11 +6,11 @@
 
   <div class="container-fluid">
       <main class="p-3">
-        <h1>Add Event: </h1>
-        <form class="" action='/events/edit/<%=eve.name-%>'method="post">
+        <h1>Edit Event: </h1>
+        <form class="" action='/events/edit/<%=eve._id-%>'method="post">
           <div class="form-group">
             <label for="Title">Title</label>
-            <input type="text" name="Title" value=<%= eve._id -%>>
+            <input type="text" name="Title" value=<%= eve.name -%>>
           </div>
           <div class="form-group">
             <label for="Title">People Invited: </label>
