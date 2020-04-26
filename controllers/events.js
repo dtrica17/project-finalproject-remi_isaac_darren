@@ -91,9 +91,9 @@ router.get('/:id',function(req,res){
     User.find().where('username').equals(req.session.user)
   ];
   Promise.all(queries).then(function([eve, comments, owner]) {
-    console.log(owner);
+    console.log('owner ' + owner);
     if (eve) {
-      res.render('events/browse', {event: eve,comments: comments, owner:owner});
+      res.render('events/browse', {event: eve,comments: comments, owner:owner[0]});
     }
   }).catch(error => console.log(error));
 });
