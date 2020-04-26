@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const User = require('../models/user');
+const session = require('express-session');
 
 // Register form
 router.get('/register', function(req, res){
@@ -55,8 +56,11 @@ router.post('/login',function(req,res,next){
     console.log(result)
     // go to home page
     if(result[0].length > 0){
+      req.session.user = req.body.username
+      console.log(req.session.user);
       res.redirect('/');
     }
+
     else{
       // this could be a flash
       console.log("No user found");

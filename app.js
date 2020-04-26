@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: false}));
 // Generate a session for each client
 app.use(session({
   // i think here is where we need to get a specfic name
-  name: 'catalog', // Name of client cookies
+  name: 'non-Academic events', // Name of client cookies
   secret: 'temporary', // Password for client cookies
   resave: false, // Recommended setting
   saveUninitialized: false // Recommended setting
