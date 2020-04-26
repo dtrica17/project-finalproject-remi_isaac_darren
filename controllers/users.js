@@ -50,7 +50,7 @@ router.post('/login',function(req,res,next){
   passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect:'/users/login',
-    failureFlash: false
+    failureFlash: true
   })(req,res, next);
 });
 
