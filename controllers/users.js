@@ -37,7 +37,7 @@ router.post('/register',function(req, res){
         res.redirect('/users/login');
       }
     }); // I think this is in the correct place
-  }
+  //}
 });
 
 router.get('/login',function(req, res){
