@@ -43,7 +43,7 @@ router.post('/register',function(req, res){
 
 router.get('/login',function(req, res){
    User.find()
-   .then(allUsers => res.render('/login', {allUsers: allUsers})
+   .then(allUsers => res.render('/login', {allUsers: allUsers}))
 });
 
 // login process
