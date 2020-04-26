@@ -3,6 +3,7 @@ const session = require('express-session')
 //const router = require('./router');
 const connect = require('./db');
 
+
 // connect to db
 connect();
 
@@ -12,6 +13,9 @@ const app = express();
 // configure the views
 app.set('view engine', 'ejs');  // for some reason this is not working
 app.set('views', './views');
+
+//Set public folder
+app.use(express.static('./public'))
 
 // Parse request bosies like queries
 app.use(express.urlencoded({extended: false}));
