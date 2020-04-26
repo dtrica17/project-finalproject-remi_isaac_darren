@@ -90,7 +90,7 @@ router.get('/:id',function(req,res){
     Comment.find().where('event').equals(req.params.id),
     User.find().where('username').equals(req.session.user)
   ];
-  Promise.all(queries).then(function([eve, comments, owner) {
+  Promise.all(queries).then(function([eve, comments, owner]) {
     console.log(owner);
     if (eve) {
       res.render('events/browse', {event: eve,comments: comments, owner:owner});
