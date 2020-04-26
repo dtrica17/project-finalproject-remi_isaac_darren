@@ -52,6 +52,10 @@ router.post('/login',function(req,res,next){
   if(User.find(req.body.username)){
     res.redirect('/');
   }
+  else{
+    // this could be a flash
+    console.log("No user found");
+  }
 
 });
 
