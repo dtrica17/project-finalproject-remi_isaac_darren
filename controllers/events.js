@@ -4,69 +4,91 @@ const Comment = require('../models/comment');
 const express = require('express');
 const router = express.Router();
 
-router.get('/calendar', function(req, res){
-  Event.find()
-  .then(allEvents => res.render('detail'),{allEvents:allEvents});
+let Comment = require('./models/comment')
+// Get a single article
+router.get('/:id',function(req,res){
+  const queries = [
+    Event.findById(req.params.id),
+    Comment.find().where('event').equals(req.params.id)
+  ];
+  Promise.all(queries).then(function([eve, comments]) {
+    if (eve) {
+      res.render('events/browse', {event: eve,comments: comments});
+    }
+  }).catch(error => console.log(error));
+})
+
+
+
+// add router
+router.get('/add',function(req, res){
+  res.render('events/add');
 });
 
-// GET /events
-module.exports.index = function(request, response, next) {
-  const order = request.query.sort || '_id'; // Default to sort by course
-  Event.find().sort(order)
-    //.then(allEvents => response.redirect(`events/${allEvents[0]._id}`))
-    //.then(allEvents => response.redirect(`events/Calendar`))
-    // set the current event to null
-    // in index it checks if event is null
-    // if so it will display the calendar
-    .then(allEvents => response.render("events/index",{allEvents:allEvents, event: null}))
-    .catch(error => next(error))
-};
-//Get /events/Calendar
+// add Submit post route
+router.post('/add', function(req,res){
+  let event = new Event();
+  event.name = req.body.title;
+  event.people_invited = req.body.people_invited;
+  event.location = req.body.location;
+  event.date = req.body.date;   // this prolly wont work right
+  event.description = req.body.description;
 
-
-
-// GET /events/:id
-module.exports.retrieve = function(request, response, next) {
-  const queries = [
-    Event.findById(request.params.id),
-    Event.find(),
-    Comment.find().where('event').equals(request.params.id)
-  ];
-
-  Promise.all(queries).then(function([eve, allEvents, comments]) {
-    console.log(eve)
-    if (eve) {
-      //console.log(comments[0].comment);
-      response.render('events/index', {event: eve, allEvents: allEvents, comments: comments});
+  event.save(function(err){
+    if(err){
+      console.log(err);
+      return;
     }
     else{
-      next()
+      res.redirect('/');
     }
-  }).catch(error => next(error));
-};
+  })
+})
 
-// POST /event (with the new event in the request)
-module.exports.create = function(request, response, next){
-  // creates an event out of the request.body
-  Event.create(request.body)
-  // update status to 201
-  .then(eve => response.status(201).send(eve.id))
-  .catch(error => next(error))
-};
+// Update submit
+router.post('/edit/:id', function(req,res){
+  let eve = {}
+  eve.name = req.body.title;
+  eve.people_invited = req.body.people_invited;
+  eve.location = req.body.location;
+  eve.date = req.body.date;   // this prolly wont work right
+  eve.description = req.body.description;
 
-module.exports.delete = function(request, response, next) {
-  // find an event by given ID and delete it
-  Event.findByIdAndDelete(request.params.id)
-    // if succesful response 200 otherwise next
-    .then(eve => eve ? response.status(200).end() : next())
-    .catch(error => next(error));
-};
+  let query = {_id:req.params.id}
 
-// PUT /event/:id (with the changes in the request body)
-module.exports.update = function(request, response, next) {
-  // find by specfic id and update it to body
-  Course.findByIdAndUpdate(request.params.id, request.body)
-  // if succesful 200 else next()
-    .then(eve => eve ? response.status(200).end() : next())
-    .catch(error => next(error));
-};
+  Event.update(query, eve, function(err){
+    if(err){
+      console.log(err);
+      return;
+    }
+    else{
+      res.redirect('/');
+    }
+  })
+})
+
+// delete an event
+router.delete('/:id', function(req, res){
+  let query = {_id:req.params.id}
+  Event.remove(query, function(err){
+    if(err){console.log(err)}
+    res.send('Success');
+  })
+})
+
+// load edit form
+router.get('/edit/:id',function(req,res){
+  const queries = [
+    Event.findById(req.params.id),
+    Comment.find().where('event').equals(req.params.id)
+  ];
+  Promise.all(queries).then(function([eve, comments]) {
+    if (eve) {
+      res.render('events/edit_event', {
+        eve: eve,
+        comments: comments});
+    }
+  }).catch(error => console.log(error));
+})
+
+module.exports = router;
