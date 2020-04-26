@@ -18,10 +18,10 @@
       <p>Posted By: <%-c.author-%></p>
 
     <%_ } -%>
-    <%# If owner { %>
+    <%_ if(owner) { -%>
       <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
       <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
 
-    <%# } %>
+    <%_ } -%>
   </div>
 </body>

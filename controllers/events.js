@@ -1,6 +1,9 @@
 // Controller for the event collection.
 const Event = require('../models/event');
 const Comment = require('../models/comment');
+const User = require('../models/user');
+
+const session = require('express-session');
 const express = require('express');
 const router = express.Router();
 
@@ -85,10 +88,11 @@ router.get('/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
     Comment.find().where('event').equals(req.params.id)
+    User.find().where(username).equals(req.session.user)
   ];
-  Promise.all(queries).then(function([eve, comments]) {
+  Promise.all(queries).then(function([eve, comments, owner]) {
     if (eve) {
-      res.render('events/browse', {event: eve,comments: comments});
+      res.render('events/browse', {event: eve,comments: comments, owner:owner});
     }
   }).catch(error => console.log(error));
 });
