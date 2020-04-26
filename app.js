@@ -5,6 +5,7 @@ const connect = require('./db');
 const passport = require('passport');
 const config = require('./config/database');
 const mongoose = require('mongoose');
+const flash = require('connect-flash')
 
 mongoose.connect(config.database);
 // connect to db
