@@ -54,7 +54,7 @@ router.post('/login',function(req,res,next){
   Promise.all(queries).then(function(result){
     console.log(result)
     // go to home page
-    if(result.length > 0){
+    if(result[0].length > 0){
       res.redirect('/');
     }
     else{
