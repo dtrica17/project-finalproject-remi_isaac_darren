@@ -51,6 +51,7 @@ router.get('/logout',function(req,res){
   if(req.session.user == null){
     res.redirect('/');
   }
+  console.log("user out: " + req.session.user)
   res.render('logout',{user:req.session.user});
 });
 
