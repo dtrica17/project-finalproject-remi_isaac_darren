@@ -12,8 +12,8 @@ router.get('/myEvents',function(req,res){
   if(req.session.user){
       query = [
         Event.find().where('organizer').equals(req.session.user)
-      ]
-      Promise.all(queries).then(function([myEvents]) {
+      ];
+      Promise.all(query).then(function([myEvents]) {
         console.log("my Events: " + myEvents);
         res.render('events/myEvents',{user: req.session.user, myEvents: myEvents})
     });
