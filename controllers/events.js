@@ -8,7 +8,13 @@ const express = require('express');
 const router = express.Router();
 
 
-
+router.get('/myEvents',function(req,res){
+  query = [
+    Event.find().where('organizer').Equals(req.session.user)
+  ]
+  Promise.all(queries).then(function([myEvents]) {
+  res.render('events/myEvents',{user: req.session.user, myEvents: myEvents})
+});
 
 
 // add router

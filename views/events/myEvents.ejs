@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<%- include('./head'); -%>
+<body>
+  <%- include('./navbar'); -%>
+  <div class="container-fluid">
+      <main class="p-3">
+        <h1>My Events: </h1>
+        <!-- This is the calendar view it displays all events -->
+        <%_ for (const e of myEvents) { -%>
+          <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e.name-%></a>
+          <!-- this date format needs to be fixed -->
+          <p class="ml-3"><%=e.date-%></p>
+        <%_ } -%>
+      </main>
+  </div>
+</body>
+</html>
