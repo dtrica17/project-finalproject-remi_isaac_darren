@@ -94,16 +94,16 @@ app.post('/events/add', function(req,res){
 
 // Update submit
 app.post('/events/edit/:id', function(req,res){
-  let event = {}
-  event.name = req.body.title;
-  event.people_invited = req.body.people_invited;
-  event.location = req.body.location;
-  event.date = req.body.date;   // this prolly wont work right
-  event.description = req.body.description;
+  let eve = {}
+  eve.name = req.body.title;
+  eve.people_invited = req.body.people_invited;
+  eve.location = req.body.location;
+  eve.date = req.body.date;   // this prolly wont work right
+  eve.description = req.body.description;
 
   let query = {_id:req.params.id}
 
-  Event.update(query, event, function(err){
+  Event.update(query, eve, function(err){
     if(err){
       console.log(err);
       return;
