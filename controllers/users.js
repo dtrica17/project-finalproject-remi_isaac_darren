@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router();
 const User = require('../models/user');
 
-//connect();
 // Register form
 router.get('/register', function(req, res){
   res.render('register')
@@ -10,16 +9,20 @@ router.get('/register', function(req, res){
 
 //Register process
 router.post('/register',function(req, res){
+  const name = req.body.name;
   const username = req.body.username;
-  req.checkBody('username', 'Username is required').notEmpty();
+  // these cant be added yet
+  // req.checkBody('username', 'Username is required').notEmpty();
+  // req.checkBody('name', 'name is required').notEmpty();
 
-  let errors = req.validationErrors();
-  if(errors){
-    res.render('register',{
-      errors:errors
-    })
-  }else{
+  //let errors = req.validationErrors();
+  // if(errors){
+  //   res.render('register',{
+  //     errors:errors
+  //   })
+  //}else{
     let newUser = new User({
+      name:name,
       username:username
     });
     newUser.save(function(err){
@@ -28,7 +31,9 @@ router.post('/register',function(req, res){
         console.log(err);
         return;
       }else{
-        req.flash('success', 'you are registered and can log in');
+        // no flash yet
+        //req.flash('success', 'you are registered and can log in');
+        console.log('success', 'you are registered and can log in');
         res.redirect('/users/login');
       }
     }); // I think this is in the correct place
