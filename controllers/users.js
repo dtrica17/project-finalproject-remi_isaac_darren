@@ -47,10 +47,12 @@ router.get('/login',function(req, res){
 
 // login process
 router.post('/login',function(req,res,next){
-  query = [User.find().where('username').equals(req.body.username)]
+  queries = [
+    User.find().where('username').equals(req.body.username)
+  ];
   // if that user exsists
-  Promise.all(query)
-  .then(function(result){
+  Promise.all(query).then(function(result){
+    console.log(result)
     // go to home page
     if(result.length > 0){
       res.redirect('/');
