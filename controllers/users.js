@@ -49,6 +49,7 @@ router.get('/login',function(req, res){
 router.post('/login',function(req,res,next){
   // if that user exsists
   // go to home page
+  console.log("user" + req.body.username);
   if(User.find(req.body.username)){
     res.redirect('/');
   }
