@@ -29,9 +29,9 @@ const users = [
 ];
 
 const comments = [
-  new Comment({author: 'Remi LeBlanc', event: 'Raft Day', comment: 'Hope the weather is nice!'}),
-  new Comment({author: 'Isaac Brinkman', event: 'Titus', comment: '$30? What a rip off!'}),
-  new Comment({author: 'Darren Ricalton', event: 'Spring Fest', comment: "Who's the artist this year? I recommend Remi LeBlanc."})
+  new Comment({author: 'Rwleb', event: 'Raft Day', comment: 'Hope the weather is nice!'}),
+  new Comment({author: 'ibrin', event: 'Titus', comment: '$30? What a rip off!'}),
+  new Comment({author: 'rdica', event: 'Spring Fest', comment: "Who's the artist this year? I recommend Remi LeBlanc."})
 ];
 
 // Reset the database
