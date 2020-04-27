@@ -86,7 +86,7 @@ router.delete('/:id', function(req, res){
 router.get('/edit/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
-    Comment.find().where('event').equals(req.params.id)
+    Comment.find().where('event').equals(Event.findById(req.params.id).name)
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
