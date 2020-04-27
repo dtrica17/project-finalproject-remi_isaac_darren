@@ -30,7 +30,7 @@ router.post('/add', function(req,res){
       return;
     }
     else{
-      res.redirect('/');
+      res.redirect('back');
     }
   })
 })
