@@ -20,7 +20,7 @@
       <p>Posted By: <%-c.author-%></p>
       <%_ if(owner) { -%>
         <%_ if(owner.username == event.organizer || owner.username == c.author) { -%>
-          <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= comment._id-%>'>Delete</button></a>
+          <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
         <%_ } -%>
       <%_ } -%>
 
