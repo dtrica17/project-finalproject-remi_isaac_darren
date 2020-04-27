@@ -64,7 +64,7 @@ let users = require('./controllers/users');
 // anything that starts /users will go to above file
 app.use('/users',users);
 
-let comments = require('/controllers/comments');
+let comments = require('./controllers/comments');
 app.use('/comments',comments);
 
 // NEW
