@@ -20,7 +20,7 @@ router.delete('/:id', function(req, res){
 router.post('/add', function(req,res){
   let c = new Comment();
   c.author = req.session.user;
-  c.event = req.body.name;
+  c.event = req.body.event;
   c.comment = req.body.comment;
 
 
