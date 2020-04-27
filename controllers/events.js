@@ -111,7 +111,7 @@ router.get('/:id',function(req,res){
     console.log('owner ' + owner);
     console.log('events ' + eve.name);
     console.log('commments '+ comments)
-    console.log('event name?: '+req.params.id)
+    console.log('event name?: '+Event.findById(req.params.id).event)
 
     if (eve) {
       res.render('events/browse', {event: eve,comments: comments, owner:owner[0]});
