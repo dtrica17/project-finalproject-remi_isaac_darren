@@ -102,14 +102,14 @@ router.get('/edit/:id',function(req,res){
 router.get('/:id',function(req,res){
   const query = [
     // this comments isnt working but should
-    Event.findById(req.params.id),
+    Event.findById(req.params.id)
     //Comment.find().where('event').equals((req.params.id).name),
   ];
 
   Promise.all(query).then(function([eve]) {
     const queries = [
       Event.findById(req.params.id),
-      Comment.find().where('event').equals(eve)
+      Comment.find().where('event').equals(eve),
       User.find().where('username').equals(req.session.user)
 
     ];
