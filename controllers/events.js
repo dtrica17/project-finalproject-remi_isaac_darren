@@ -105,7 +105,7 @@ router.get('/:id',function(req,res){
     // this comments isnt working but should
     Comment.find().where('event').equals(Event.findById(req.params.id).name),
     User.find().where('username').equals(req.session.user),
-    console.log(Event.findById(req.params.id).schema.obj.name.valueOf())
+    console.log(Event.findById(req.params.id).schema.paths._id)
   ];
 
   Promise.all(queries).then(function([eve, comments, owner]) {
