@@ -109,7 +109,7 @@ router.get('/:id',function(req,res){
   Promise.all(query).then(function([eve]) {
     const queries = [
       Event.findById(req.params.id),
-      Comment.find().where('event').equals(eve),
+      Comment.find().where('event').equals(eve.name),
       User.find().where('username').equals(req.session.user)
 
     ];
