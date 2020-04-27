@@ -100,18 +100,20 @@ router.get('/edit/:id',function(req,res){
 // Get a single article
 // this needs to be at the bottoms
 router.get('/:id',function(req,res){
-  const queries = [
-    Event.findById(req.params.id),
+  const query = [
     // this comments isnt working but should
+    Event.findById(req.params.id),
     //Comment.find().where('event').equals((req.params.id).name),
-    User.find().where('username').equals(req.session.user)
   ];
 
-  Promise.all(queries).then(function([eve, owner]) {
-    query = [
-       Comment.find().where('event').equals(eve)
+  Promise.all(query).then(function([eve]) {
+    const queries = [
+      Event.findById(req.params.id),
+      Comment.find().where('event').equals(eve)
+      User.find().where('username').equals(req.session.user)
+
     ];
-    Promise.all(query).then(function([comments]){
+    Promise.all(queries).then(function([eve, comments, owner]){
       console.log('owner ' + owner);
       console.log('events ' + eve.name);
       console.log('commments '+ comments);
