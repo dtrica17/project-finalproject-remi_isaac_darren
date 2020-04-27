@@ -27,6 +27,16 @@
     <%_ } -%>
     <p><br /></p>
     <%_ if(owner) { -%>
+      <form action="comments/add" method="post">
+        <div class="form-group">
+          <input type="textarea" name="comment" value="Comment...">
+        </div>
+        <input class="btn btn-primary" type="submit" name="<%=eve.name-%>" value="comment">
+
+      </form>
+      <%_ } -%>
+    <p><br /></p>
+    <%_ if(owner) { -%>
       <%_ if(owner.username === event.organizer) { -%>
         <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
         <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
