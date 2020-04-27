@@ -101,12 +101,12 @@ router.get('/edit/:id',function(req,res){
 router.get('/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
-    Comment.find().where('event').equals(req.params.name),
+    Comment.find().where('event').equals(Event.findById(req.params.id).name),
     User.find().where('username').equals(req.session.user)
   ];
   Promise.all(queries).then(function([eve, comments, owner]) {
     console.log('owner ' + owner);
-    console.log('events ' + req.params.name);
+    console.log('events ' + eve);
     console.log('commments '+ comments)
 
     if (eve) {
