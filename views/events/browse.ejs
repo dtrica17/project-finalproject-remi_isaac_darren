@@ -16,6 +16,12 @@
     <%_ for (const c of comments) { -%>
       <p><%-c.comment-%></p>
       <p>Posted By: <%-c.author-%></p>
+      <%_ if(owner) { -%>
+        <%_ if(owner.username == event.organizer || owner.username == c.author) { -%>
+          <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
+          <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
+        <%_ } -%>
+      <%_ } -%>
 
     <%_ } -%>
     <%_ if(owner) { -%>
