@@ -10,7 +10,7 @@ const router = express.Router();
 // delete an event
 router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
-  Event.remove(query, function(err){
+  Comment.remove(query, function(err){
     if(err){console.log(err)}
     res.send('Success');
   })
