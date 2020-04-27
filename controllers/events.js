@@ -111,7 +111,7 @@ router.get('/:id',function(req,res){
     query = [
        Comment.find().where('event').equals(eve)
     ];
-    Promise.all(query).then(function([comment]){
+    Promise.all(query).then(function([comments]){
       console.log('owner ' + owner);
       console.log('events ' + eve.name);
       console.log('commments '+ comments);
