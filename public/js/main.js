@@ -22,7 +22,7 @@ $(document).ready(function(){
     const id = $target.attr('data-id');
     $.ajax({
       type:'Delete',
-      url:'/comment/'+id,
+      url:'/comments/'+id,
       success: function(response){
         alert('Deleting Comment');
         window.location.href='/';
