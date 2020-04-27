@@ -36,7 +36,7 @@ router.post('/add', function(req,res){
   event.name = req.body.title;
   event.people_invited = req.body.people_invited;
   event.location = req.body.location;
-  event.organizer = req.session.user; // test
+  event.organizer = req.session.user;
   event.date = req.body.date;   // this prolly wont work right
   event.description = req.body.description;
 
@@ -103,7 +103,7 @@ router.get('/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
     // this comments isnt working but should
-    Comment.find().where('event').equals(Event.findById(req.params.id).name),
+    Comment.find().where('event').equals(Event.findById(req.params.id)), //.name
     User.find().where('username').equals(req.session.user)
   ];
   Promise.all(queries).then(function([eve, comments, owner]) {
