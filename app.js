@@ -64,6 +64,9 @@ let users = require('./controllers/users');
 // anything that starts /users will go to above file
 app.use('/users',users);
 
+let comments = require('/controllers/comments');
+app.use('/comments',comments);
+
 // NEW
 // Enter admin mode and return to the previous page
 // I think this automatically makes you admin instead we need a way
