@@ -106,7 +106,7 @@ router.get('/:id',function(req,res){
   ];
   Promise.all(queries).then(function([eve, comments, owner]) {
     console.log('owner ' + owner);
-    console.log('events ' + eve);
+    console.log('events ' + eve.name);
     console.log('commments '+ comments)
 
     if (eve) {
