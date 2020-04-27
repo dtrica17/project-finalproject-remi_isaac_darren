@@ -36,7 +36,7 @@ router.post('/add', function(req,res){
   event.name = req.body.title;
   event.people_invited = req.body.people_invited;
   event.location = req.body.location;
-  event.organizer = req.session.user.username; // test
+  event.organizer = req.session.user; // test
   event.date = req.body.date;   // this prolly wont work right
   event.description = req.body.description;
 
