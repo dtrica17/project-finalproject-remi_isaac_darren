@@ -104,14 +104,15 @@ router.get('/:id',function(req,res){
     Event.findById(req.params.id),
     // this comments isnt working but should
     Comment.find().where('event').equals(Event.findById(req.params.id).name),
-    User.find().where('username').equals(req.session.user)
+    User.find().where('username').equals(req.session.user),
+    console.log('test'+Event.findById(req.params.id))
   ];
 
   Promise.all(queries).then(function([eve, comments, owner]) {
     console.log('owner ' + owner);
     console.log('events ' + eve.name);
     console.log('commments '+ comments);
-    console.log('event name?: '+Event.findById(req.params.id).params);
+    console.log(Event.findById(req.params.id));
 
     if (eve) {
       res.render('events/browse', {event: eve,comments: comments, owner:owner[0]});
