@@ -18,13 +18,13 @@ router.delete('/:id', function(req, res){
 
 // post a new comment
 router.post('/add', function(req,res){
-  let comment = new Comment();
-  comment.author = req.session.user;
-  comment.event = req.body.name;
-  comment.comment = req.body.comment;
+  let c = new Comment();
+  c.author = req.session.user;
+  c.event = req.body.name;
+  c.comment = req.body.comment;
 
 
-  comment.save(function(err){
+  c.save(function(err){
     if(err){
       console.log(err);
       return;
