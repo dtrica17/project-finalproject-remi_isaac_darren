@@ -3,6 +3,12 @@ const router = express.Router();
 const User = require('../models/user');
 const session = require('express-session');
 
+// make user avaible everywhere
+router.use(function(request, response, next) {
+  response.locals.user = request.session.user;
+  next();
+});
+
 // Register form
 router.get('/register', function(req, res){
   res.render('register')
@@ -74,7 +80,7 @@ router.post('/login',function(req,res,next){
     console.log(result)
     // go to home page
     if(result[0].length > 0){
-      req.session.user = req.body.username
+      req.session.user = req.body.username;
       console.log(req.session.user);
       res.redirect('/');
     }
@@ -86,10 +92,6 @@ router.post('/login',function(req,res,next){
   })
 })
 
-// make user avaible everywhere
-router.use(function(request, response, next) {
-  response.locals.user = request.session.user;
-  next();
-});
+
 
 module.exports = router;

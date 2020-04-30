@@ -8,6 +8,16 @@ const express = require('express');
 const router = express.Router();
 
 
+// Check for admin status
+const authorize = function(request, response, next) {
+  if (request.session.user) {
+    next(); // Fulfill the request
+  } else {
+    response.status(401).end();
+  }
+};
+
+
 router.get('/myEvents',function(req,res){
   if(req.session.user){
       query = [
