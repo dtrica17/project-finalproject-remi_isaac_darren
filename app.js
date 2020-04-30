@@ -34,6 +34,8 @@ app.get('/favicon.ico', function(request, response) {
   response.status(204).end();
 });
 
+
+
 // Log requests to the console
 //request.body is undefined...
 app.use(function(request, response, next) {
