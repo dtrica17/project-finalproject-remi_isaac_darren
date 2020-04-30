@@ -87,7 +87,7 @@ router.post('/login',function(req,res,next){
 })
 
 // make user avaible everywhere
-app.use(function(request, response, next) {
+router.use(function(request, response, next) {
   response.locals.user = request.session.user;
   next();
 });
