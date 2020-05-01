@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Event = new mongoose.Schema({
-  name: String,
-  people_invited: String,
-  location: String,
-  organizer: String,
-  date: Date,    // not sure this is how
-  description: String
+  name: {type: String, required: true, trim: true},
+  people_invited: {type: String, default: "Everyone", trim: true},
+  location: {type: String, required: true, trim: true},
+  organizer: {type: String, required: true, trim: true},
+  date: {Date: String, required: true},    // not sure this is how
+  description: {type: String, , trim: true}
 
 });
 

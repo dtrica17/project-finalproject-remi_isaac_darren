@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const User = new mongoose.Schema({
-  name: String,
-  username: String
+  name: {type: String, trim: true},
+  username: {type: String, required: true, trim: true}
 });
 
 // Export the model
