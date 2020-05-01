@@ -10,10 +10,10 @@ connect();
 
 // Model a collection of courses
 const events = [
-  // new Event({name: 'Senior Streak', people_invited: 'Seniors', location: 'The Quad', organizer: 'Seniors', date:"2019-08-29", description:'All seniors streak across the quad (dont tell the freshmen)'}),
-  // new Event({name: 'Raft Day', people_invited: 'Everyone', location: 'The River', organizer: 'OC', date:"2019-09-05", description:'A party at the river. Bring rafts and fun'}),
-  // new Event({name: 'Titus', people_invited: 'Ticket Owners', location: 'Titus Mountain', organizer: 'OC', date:"2020-03-14", description:'A party at Titus mountain. Tickets selling for $30'}),
-  // new Event({name: 'Spring Fest', people_invited: 'Everyone', location: 'Intramural Field', organizer: 'ACE', date:"2020-04-15", description:'Huge concert! No drinks allowed!'})
+  new Event({name: 'Senior Streak', people_invited: 'Seniors', location: 'The Quad', organizer: 'Seniors', date:new Date("August 29, 2020 10:00"), description:'All seniors streak across the quad (dont tell the freshmen)'}),
+  new Event({name: 'Raft Day', people_invited: 'Everyone', location: 'The River', organizer: 'OC', date:new Date("September 05, 2020 11:00"), description:'A party at the river. Bring rafts and fun'}),
+  new Event({name: 'Titus', people_invited: 'Ticket Owners', location: 'Titus Mountain', organizer: 'OC', date:new Date("March 14, 2020 9:45"), description:'A party at Titus mountain. Tickets selling for $30'}),
+  new Event({name: 'Spring Fest', people_invited: 'Everyone', location: 'Intramural Field', organizer: 'ACE', date:new Date("April 15, 2021 16:00"), description:'Huge concert! No drinks allowed!'})
 
 ];
 
