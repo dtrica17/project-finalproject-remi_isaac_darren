@@ -29,10 +29,10 @@
     <%_ if(owner) { -%>
       <form action="/comments/add" method="post">
         <div class="form-group">
-          <input type="textarea" name="comment" value="Comment...">
+          <input type="textarea" name="comment" placeholder="Comment...">
           <input class="HIDDEN" name="event" value="<%=event.name-%>">
         </div>
-        <input class="btn btn-primary" type="submit"  placeholder="comment">
+        <input class="btn btn-primary" type="submit"  value="comment">
 
       </form>
       <%_ } -%>
