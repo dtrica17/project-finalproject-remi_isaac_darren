@@ -45,6 +45,12 @@ app.use(function(request, response, next) {
   next();
 });
 
+// make user avaible from all routes
+app.get('*',function(req,res,next){
+  res.local.user = req.user || null;
+  next();
+});
+
 
 let Event = require('./models/event');
 // Redirect from the home page
@@ -79,19 +85,14 @@ app.use('/comments',comments);
 // });
 
 
+
+
 // Make the mode available in all views
 app.use(function(request, response, next) {
   response.locals.admin = request.session.admin;
   next();
 });
-// NEW END
 
-// Route content requests
-// anything that uses users has to go to controllers/users
-// let users = require('./controllers/users')
-// app.use('/users', users)
-// let events = require('./controllers/events')
-// app.use('/events', events)
 
 // Handle undefined routes
 app.use(function(request, response) {

@@ -2,19 +2,23 @@
   <h1 class="navbar-brand">Non Academic Events</h1>
   <nav class="navbar-nav ml-3">
     <a href="/" class="nav-item nav-link">Calendar</a>
-    <!-- if user { -->
-    <a href="/events/myEvents" class="nav-item nav-link">My Events</a>
-    <a href="/events/add" class="nav-item nav-link">Create Event</a>
+    <%_ if(user) { -%>
+      <a href="/events/myEvents" class="nav-item nav-link">My Events</a>
+      <a href="/events/add" class="nav-item nav-link">Create Event</a>
+    <%_ } -%>
+
     <!-- } -->
 
 
   </nav>
   <!-- I think this needs to go to a new page that has a user input a login -->
   <nav class="navbar-nav ml-auto">
-    <!-- if User { -->
+    <%_ if(user) { -%>
       <a href="/users/logout" class="nav-item nav-link">Logout</a>
-      <!-- else -->
+      <%_ } else { -%>
         <a href="/users/login" class="nav-item nav-link">Login</a>
-      <a href="/users/register" class="nav-item nav-link">Register</a>
+        <a href="/users/register" class="nav-item nav-link">Register</a>
+      <%_ } -%>
+
   </nav>
 </header>
