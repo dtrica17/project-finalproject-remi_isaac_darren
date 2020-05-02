@@ -48,9 +48,9 @@ app.use(function(request, response, next) {
 // make user avaible from all routes
 app.get('*',function(req,res,next){
   if(req.session.user){
-    res.local.user = req.session.user;
+    res.locals.user = req.session.user;
   } else{
-    res.local.user = null;
+    res.locals.user = null;
 
   }
   next();
@@ -93,10 +93,10 @@ app.use('/comments',comments);
 
 
 // Make the mode available in all views
-app.use(function(request, response, next) {
-  response.locals.admin = request.session.admin;
-  next();
-});
+// app.use(function(request, response, next) {
+//   response.locals.admin = request.session.admin;
+//   next();
+// });
 
 
 // Handle undefined routes

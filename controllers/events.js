@@ -7,15 +7,15 @@ const session = require('express-session');
 const express = require('express');
 const router = express.Router();
 
-
-// Check for admin status
-const authorize = function(request, response, next) {
-  if (request.session.user) {
-    next(); // Fulfill the request
-  } else {
-    response.status(401).end();
-  }
-};
+//
+// // Check for logged in status status
+// const authorize = function(request, response, next) {
+//   if (request.session.user) {
+//     next(); // Fulfill the request
+//   } else {
+//     response.status(401).end();
+//   }
+// };
 
 
 router.get('/myEvents',function(req,res){
@@ -132,6 +132,7 @@ router.get('/:id',function(req,res){
       Comment.find().where('event').equals(eve._id),
       User.find().where('_id').equals(req.session.user)
     ];
+
     Promise.all(queries).then(function([eve, comments, owner]){
       console.log('owner ' + owner);
       console.log('events ' + eve._id + eve.organizer);
