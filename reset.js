@@ -19,12 +19,12 @@ const events = [
 
 // Model a collection of sections
 const users = [
-  new User({name: 'John Doe', username: 'OC'}),
-  new User({name: 'Jill Doe',username: 'Seniors'}),
-  new User({name: 'Joe Doe',username: 'ACE'}),
-  new User({name: 'Remi LeBlanc', username: 'Rwleb'}),
-  new User({name: 'Isaac Brinkman', username: 'ibrin'}),
-  new User({name: 'Darren Ricaltion', username: 'rdica'})
+  new User({name: 'John Doe', _id: 'OC'}),
+  new User({name: 'Jill Doe',_id: 'Seniors'}),
+  new User({name: 'Joe Doe',_id: 'ACE'}),
+  new User({name: 'Remi LeBlanc', _id: 'Rwleb'}),
+  new User({name: 'Isaac Brinkman', _id: 'ibrin'}),
+  new User({name: 'Darren Ricaltion', _id: 'rdica'})
 
 ];
 

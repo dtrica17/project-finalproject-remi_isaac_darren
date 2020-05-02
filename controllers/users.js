@@ -17,7 +17,7 @@ router.get('/register', function(req, res){
 //Register process
 router.post('/register',function(req, res){
   const name = req.body.name;
-  const username = req.body.username;
+  const _id = req.body.username;
   // these cant be added yet
   // req.checkBody('username', 'Username is required').notEmpty();
   // req.checkBody('name', 'name is required').notEmpty();
@@ -30,7 +30,7 @@ router.post('/register',function(req, res){
   //}else{
     let newUser = new User({
       name:name,
-      username:username
+      _id:username
     });
     newUser.save(function(err){
       // theres a better way to do this i know
@@ -57,23 +57,24 @@ router.get('/logout',function(req,res){
   if(req.session.user == null){
     res.redirect('/');
   }
-  console.log("user out: " + req.session.user)
-  res.render('logout',{user:req.session.user});
-});
-
-router.post('/logout',function(req,res,next){
   req.session.user = null;
   console.log("Successful logout");
   res.redirect('/');
-
-
 });
+
+// router.post('/logout',function(req,res,next){
+//   req.session.user = null;
+//   console.log("Successful logout");
+//   res.redirect('/');
+//
+//
+// });
 
 
 // login process
 router.post('/login',function(req,res,next){
   queries = [
-    User.find().where('username').equals(req.body.username)
+    User.find().where('_id').equals(req.body.username)
   ];
   // if that user exsists
   Promise.all(queries).then(function(result){
