@@ -39,7 +39,7 @@ router.get('/myEvents',function(req,res){
 router.get('/add',function(req, res){
   if(req.session.user == null){
     console.log("Not Logged in")
-    res.render("back");
+    res.redirect("back");
   }
   else{
     res.render('events/add');
