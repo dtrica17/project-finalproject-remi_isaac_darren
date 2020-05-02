@@ -52,7 +52,7 @@ router.post('/add', function(req,res){
 
     let event = new Event();
     if(Event.find(req.body.title)){
-      alert("Duplicate Event")
+      //alert("Duplicate Event")
       res.redirect("back")
 
     }
