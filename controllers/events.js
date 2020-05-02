@@ -87,7 +87,12 @@ router.post('/edit/:id', function(req,res){
       return;
     }
     else{
-      res.redirect('/');
+      if(user !== eve.organizer){
+        res.status(401);
+      }else {
+        res.redirect('/');
+
+      }
     }
   })
 })
