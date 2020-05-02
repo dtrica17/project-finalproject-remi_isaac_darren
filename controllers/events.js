@@ -37,7 +37,7 @@ router.get('/myEvents',function(req,res){
 
 // add router
 router.get('/add',function(req, res){
-  if(res.session.user == null){
+  if(req.session.user == null){
     console.log("Not Logged in")
   }
   else{
@@ -101,7 +101,6 @@ router.delete('/:id', function(req, res){
 })
 
 // load edit form
-//<%=eve.date.getFullYear()-%>-<%=eve.date.getMonth()-%>-<%=eve.date.getDay()-%>."<%_.trim()-%>
 router.get('/edit/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
