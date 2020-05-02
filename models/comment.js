@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Comment = new mongoose.Schema({
-  author: {type: String, required: true, trim: true},
-  event: {type: String, required: true, trim: true},
-  comment: {type: String, required: true, trim: true}
+  author: {type: String, required: True, trim: True},
+  event: {type: String, required: True, trim: True},
+  comment: {type: String, required: True, trim: True}
 });
 
 // Export the model
