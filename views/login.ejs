@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <%- include('./head'); -%>
   <body>
-    <%- include('./navbar'); -%>
+    <%- include('./navbar', {active: 'login'}); -%>
     <h1>Login</h1>
     <form class="" action="/users/login" method="post">
       <label for="">Username</label>
