@@ -64,7 +64,7 @@ router.post('/add', function(req,res){
         return;
       }
       else{
-        req.flash("Succes",'Article Added');
+        req.flash("success",'Article Added');
         res.redirect('/');
       }
     })
