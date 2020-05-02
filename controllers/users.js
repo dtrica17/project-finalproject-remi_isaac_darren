@@ -78,11 +78,11 @@ router.post('/login',function(req,res,next){
   ];
   // if that user exsists
   Promise.all(queries).then(function(result){
-    console.log(result)
+    console.log("result " + result)
     // go to home page
     if(result[0].length > 0){
       req.session.user = req.body.username;
-      console.log(req.session.user);
+      console.log("current user " +req.session.user);
       res.redirect('/');
     }
 
