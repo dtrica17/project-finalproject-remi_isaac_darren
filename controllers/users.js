@@ -62,13 +62,6 @@ router.get('/logout',function(req,res){
   res.redirect('/');
 });
 
-// router.post('/logout',function(req,res,next){
-//   req.session.user = null;
-//   console.log("Successful logout");
-//   res.redirect('/');
-//
-//
-// });
 
 
 // login process

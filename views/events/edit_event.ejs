@@ -3,7 +3,9 @@
 <%- include('../head'); -%>
 <body>
   <%- include('../navbar'); -%>
-
+  <%_ if(user !== eve.organizer){
+    <!-- Need to throw unauthorized error  -->
+  } -%>
   <div class="container-fluid">
       <main class="p-3">
         <h1>Edit Event: </h1>
