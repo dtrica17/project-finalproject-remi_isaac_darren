@@ -123,7 +123,6 @@ router.get('/edit/:id',function(req,res){
 // this needs to be at the bottom
 router.get('/:id',function(req,res){
   const query = [
-    // this comments isnt working but should
     Event.findById(req.params.id)
   ];
 
@@ -132,7 +131,6 @@ router.get('/:id',function(req,res){
       Event.findById(req.params.id),
       Comment.find().where('event').equals(eve._id),
       User.find().where('_id').equals(req.session.user)
-
     ];
     Promise.all(queries).then(function([eve, comments, owner]){
       console.log('owner ' + owner);
