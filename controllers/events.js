@@ -101,7 +101,7 @@ router.get('/edit/:id',function(req,res){
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
-      const date = eve.toISOString();
+      const date = eve.date.toISOString();
       res.render('events/edit_event', {
         eve: eve,
         comments: comments,
