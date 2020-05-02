@@ -101,11 +101,11 @@ router.get('/edit/:id',function(req,res){
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
-      console.log(eve.date.getFullYear() + "-0" + eve.date.getMonth() + "-0" +eve.date.getDay());
+      const date = eve.date.getFullYear() + "-0" + eve.date.getMonth() + "-0" +eve.date.getDay();
       res.render('events/edit_event', {
         eve: eve,
         comments: comments,
-        date: eve.date.getFullYear() + "," + eve.date.getMonth() + "," +eve.date.getDay()});
+        date: date});
     }
   }).catch(error => console.log(error));
 })
