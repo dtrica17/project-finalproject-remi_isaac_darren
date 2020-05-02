@@ -51,7 +51,7 @@ router.get('/add',function(req, res){
 router.post('/add', function(req,res){
 
     let event = new Event();
-    event.name = req.body.title;
+    event._id = req.body.title;
     event.people_invited = req.body.people_invited;
     event.location = req.body.location;
     event.organizer = req.session.user;
@@ -73,7 +73,7 @@ router.post('/add', function(req,res){
 // Update submit
 router.post('/edit/:id', function(req,res){
   let eve = {}
-  eve.name = req.body.title;
+  eve._id = req.body.title;
   eve.people_invited = req.body.people_invited;
   eve.location = req.body.location;
   eve.date = req.body.date;   // this prolly wont work right
@@ -105,7 +105,7 @@ router.delete('/:id', function(req, res){
 router.get('/edit/:id',function(req,res){
   const queries = [
     Event.findById(req.params.id),
-    Comment.find().where('event').equals(Event.findById(req.params.id).name)
+    Comment.find().where('event').equals(Event.findById(req.params.id)._id)
   ];
   Promise.all(queries).then(function([eve, comments]) {
     if (eve) {
@@ -125,21 +125,20 @@ router.get('/:id',function(req,res){
   const query = [
     // this comments isnt working but should
     Event.findById(req.params.id)
-    //Comment.find().where('event').equals((req.params.id).name),
   ];
 
   Promise.all(query).then(function([eve]) {
     const queries = [
       Event.findById(req.params.id),
-      Comment.find().where('event').equals(eve.name),
+      Comment.find().where('event').equals(eve._id),
       User.find().where('_id').equals(req.session.user)
 
     ];
     Promise.all(queries).then(function([eve, comments, owner]){
       console.log('owner ' + owner);
-      console.log('events ' + eve.name);
+      console.log('events ' + eve._id);
       console.log('commments '+ comments);
-      console.log(Event.findById(req.params.id).name);
+      console.log(Event.findById(req.params.id)._id);
 
       if (eve) {
         res.render('events/browse', {event: eve,comments: comments, owner:owner[0]});
