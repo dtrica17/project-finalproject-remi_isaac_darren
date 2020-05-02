@@ -8,9 +8,10 @@
 
 
 <div id="messages">
+  <%= let type = "success" -%>
 <% Object.keys(messages).forEach(function (type) { %>
   <% messages[type].forEach(function (message) { %>
-    <div class=type>> <%=message-%></div>
+    <div class="alert alert-"+type>> <%=message-%></div>
   <% }) %>
 <% }) %>
 </div>
