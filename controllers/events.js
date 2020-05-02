@@ -42,7 +42,7 @@ router.get('/add',function(req, res){
 
 // add Submit post route
 router.post('/add', function(req,res){
-  if(session.user){
+  if(session.user != null){
     let event = new Event();
     event.name = req.body.title;
     event.people_invited = req.body.people_invited;
