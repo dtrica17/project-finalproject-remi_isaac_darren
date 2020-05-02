@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 //const router = require('./router');
 const connect = require('./db');
-// const flash = require('connect-flash');
+const flash = require('connect-flash');
 
 
 // connect to db
@@ -18,12 +18,12 @@ app.set('views', './views');
 //Set public folder
 app.use(express.static('./public'))
 
-// //Express messages middleware
-// app.use(require('connect-flash')());
-// app.use(function(req,res,next){
-//   res.locals.messages = require('express-messages')(req, res);
-//   next();
-// });
+//Express messages middleware
+app.use(require('connect-flash')());
+app.use(function(req,res,next){
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
 // Parse request bosies like queries
 app.use(express.urlencoded({extended: false}));
