@@ -51,11 +51,6 @@ router.get('/add',function(req, res){
 router.post('/add', function(req,res){
 
     let event = new Event();
-    if(Event.find(req.body.title)){
-      window.alert("Duplicate Event");
-      res.redirect("back");
-
-    }
     event._id = req.body.title;
     event.people_invited = req.body.people_invited;
     event.location = req.body.location;
