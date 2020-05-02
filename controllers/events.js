@@ -76,7 +76,8 @@ router.post('/edit/:id', function(req,res){
   if(Event.find(req.body.title)){
     alert("Duplicate Event")
     res.redirect("back")
-  });
+
+  }
   eve._id = req.body.title;
   eve.people_invited = req.body.people_invited;
   eve.location = req.body.location;
