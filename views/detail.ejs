@@ -10,7 +10,7 @@
         <%_ for (const e of allEvents) { -%>
           <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e.name-%></a>
           <!-- this date format needs to be fixed -->
-          <p class="ml-3"><%=e.date-%></p>
+          <p class="ml-3"><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
         <%_ } -%>
       </main>
   </div>
