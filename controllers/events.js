@@ -120,7 +120,7 @@ router.get('/edit/:id',function(req,res){
 })
 
 // Get a single article
-// this needs to be at the bottoms
+// this needs to be at the bottom
 router.get('/:id',function(req,res){
   const query = [
     // this comments isnt working but should
@@ -136,9 +136,8 @@ router.get('/:id',function(req,res){
     ];
     Promise.all(queries).then(function([eve, comments, owner]){
       console.log('owner ' + owner);
-      console.log('events ' + eve._id);
+      console.log('events ' + eve._id + eve.organizer);
       console.log('commments '+ comments);
-      console.log(Event.findById(req.params.id)._id);
 
       if (eve) {
         res.render('events/browse', {event: eve,comments: comments, owner:owner[0]});
