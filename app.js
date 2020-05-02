@@ -47,12 +47,7 @@ app.use(function(request, response, next) {
 
 // make user avaible from all routes
 app.get('*',function(req,res,next){
-  if(req.session.user){
-    res.locals.user = req.session.user;
-  } else{
-    res.locals.user = null;
-
-  }
+  res.locals.user = req.session.user || null;
   next();
 });
 
