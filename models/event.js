@@ -7,7 +7,7 @@ const Event = new mongoose.Schema({
   people_invited: {type: String, default: "Everyone", trim: true},
   location: {type: String, required: true, trim: true},
   organizer: {type: String, required: true, trim: true},
-  date: {Date: String, required: true},    // not sure this is how
+  date: {type: Date, required: true},    // not sure this is how
   description: {type: String, trim: true}
 
 });
