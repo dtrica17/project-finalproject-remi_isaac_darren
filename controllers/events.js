@@ -42,23 +42,29 @@ router.get('/add',function(req, res){
 
 // add Submit post route
 router.post('/add', function(req,res){
-  let event = new Event();
-  event.name = req.body.title;
-  event.people_invited = req.body.people_invited;
-  event.location = req.body.location;
-  event.organizer = req.session.user;
-  event.date = req.body.date;   // this prolly wont work right
-  event.description = req.body.description;
+  if(session.user){
+    let event = new Event();
+    event.name = req.body.title;
+    event.people_invited = req.body.people_invited;
+    event.location = req.body.location;
+    event.organizer = req.session.user;
+    event.date = req.body.date;   // this prolly wont work right
+    event.description = req.body.description;
 
-  event.save(function(err){
-    if(err){
-      console.log(err);
-      return;
-    }
-    else{
-      res.redirect('/');
-    }
-  })
+    event.save(function(err){
+      if(err){
+        console.log(err);
+        return;
+      }
+      else{
+        res.redirect('/');
+      }
+    })
+  }
+  else{
+    console.log("Not Logged in");
+  }
+
 })
 
 // Update submit
