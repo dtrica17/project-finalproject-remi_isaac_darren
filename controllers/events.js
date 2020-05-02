@@ -37,12 +37,18 @@ router.get('/myEvents',function(req,res){
 
 // add router
 router.get('/add',function(req, res){
-  res.render('events/add');
+  if(res.session.user == null){
+    console.log("Not Logged in")
+  }
+  else{
+    res.render('events/add');
+
+  }
 });
 
 // add Submit post route
 router.post('/add', function(req,res){
-  if(session.user != null){
+
     let event = new Event();
     event.name = req.body.title;
     event.people_invited = req.body.people_invited;
@@ -60,10 +66,6 @@ router.post('/add', function(req,res){
         res.redirect('/');
       }
     })
-  }
-  else{
-    console.log("Not Logged in");
-  }
 
 })
 
