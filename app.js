@@ -33,8 +33,8 @@ app.use(session({
   // i think here is where we need to get a specfic name
   name: 'non-Academic events', // Name of client cookies
   secret: 'temporary', // Password for client cookies
-  resave: false, // Recommended setting
-  saveUninitialized: false // Recommended setting
+  resave: true, // Recommended setting
+  saveUninitialized: true // Recommended setting
 }));
 
 // Ignore icon requests
