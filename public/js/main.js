@@ -33,4 +33,16 @@ $(document).ready(function(){
 
     })
   });
+  $('.edit-event').on('click',function(e){
+    $target = $(e.target);
+    const id = $target.attr('data-id');
+    $.ajax({
+      type:'Get',
+      url:'/events/add',
+      success: function(response){
+        alert('Event already exists');
+        window.location.href='/events/add';
+      },
+      error: function(err){
+        console.log(err);
 });

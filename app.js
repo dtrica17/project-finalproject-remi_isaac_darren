@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 //const router = require('./router');
 const connect = require('./db');
+// const flash = require('connect-flash');
 
 
 // connect to db
@@ -16,6 +17,13 @@ app.set('views', './views');
 
 //Set public folder
 app.use(express.static('./public'))
+
+// //Express messages middleware
+// app.use(require('connect-flash')());
+// app.use(function(req,res,next){
+//   res.locals.messages = require('express-messages')(req, res);
+//   next();
+// });
 
 // Parse request bosies like queries
 app.use(express.urlencoded({extended: false}));
@@ -74,25 +82,6 @@ app.use('/users',users);
 
 let comments = require('./controllers/comments');
 app.use('/comments',comments);
-
-// NEW
-// Enter admin mode and return to the previous page
-// I think this automatically makes you admin instead we need a way
-// for an individual to log in
-// app.get('/login', function(request, response) {
-//   request.session.admin = true;
-//   response.redirect('back');
-// });
-
-
-
-
-// Make the mode available in all views
-// app.use(function(request, response, next) {
-//   response.locals.admin = request.session.admin;
-//   next();
-// });
-
 
 // Handle undefined routes
 app.use(function(request, response) {
