@@ -89,7 +89,7 @@ router.post('/edit/:id', function(req,res){
       return;
     }
     else{
-      if(user !== eve.organizer){
+      if(req.session.user !== eve.organizer){
         res.status(401);
       }else {
         req.flash("success", "Event Updated")
