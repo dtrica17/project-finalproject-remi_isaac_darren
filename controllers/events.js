@@ -64,7 +64,7 @@ router.post('/add', function(req,res){
         return;
       }
       else{
-        req.flash("alert-success",'Article Added');
+        req.flash("success",'Event Added');
         res.redirect('/');
       }
     })
@@ -92,6 +92,7 @@ router.post('/edit/:id', function(req,res){
       if(user !== eve.organizer){
         res.status(401);
       }else {
+        req.flash("success", "Event Updated")
         res.redirect('/');
 
       }
@@ -104,6 +105,7 @@ router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
   Event.remove(query, function(err){
     if(err){console.log(err)}
+    req.flash("warning", "Event Deleted");
     res.send('Success');
   })
 })

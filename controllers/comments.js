@@ -13,6 +13,7 @@ router.delete('/:id', function(req, res){
   Comment.remove(query, function(err){
     if(err){console.log(err)}
     res.send('Success');
+    req.flash("success", "Comment Deleted")
   })
 })
 
@@ -30,6 +31,7 @@ router.post('/add', function(req,res){
       return;
     }
     else{
+      req.flash("success", "Comment Added")
       res.redirect('back');
     }
   })

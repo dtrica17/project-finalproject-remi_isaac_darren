@@ -41,6 +41,7 @@ router.post('/register',function(req, res){
         // no flash yet
         //req.flash('success', 'you are registered and can log in');
         console.log('success', 'you are registered and can log in');
+        req.flash("success", "You are registered and can now log in");
         res.redirect('/users/login');
       }
     }); // I think this is in the correct place
@@ -58,6 +59,7 @@ router.get('/logout',function(req,res){
     res.redirect('/');
   }
   req.session.user = null;
+  req.flash("warning", "Logged out")
   console.log("Successful logout");
   res.redirect('/');
 });
