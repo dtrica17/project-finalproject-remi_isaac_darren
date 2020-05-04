@@ -4,7 +4,6 @@ $(document).ready(function(){
   $('.delete-eve').on('click',function(e){
     $target = $(e.target);
     const id = $target.attr('data-id');
-    if(confirm("Delete this event?"){
       $.ajax({
         type:'Delete',
         url:'/events/'+id,
@@ -15,14 +14,12 @@ $(document).ready(function(){
           console.log(err);
         }
 
-      })
     })
 
   });
   $('.delete-comment').on('click',function(e){
     $target = $(e.target);
     const id = $target.attr('data-id');
-    if(confirm("Delete this comment?"){
       $.ajax({
         type:'Delete',
         url:'/comments/'+id,
@@ -35,7 +32,6 @@ $(document).ready(function(){
         }
 
       })
-    })
 
   });
   $('.edit-event').on('click',function(e){
