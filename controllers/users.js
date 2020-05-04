@@ -82,7 +82,7 @@ router.post('/login',function(req,res,next){
 
     else{
       // this could be a flash
-      console.log("No user found");
+      req.flash("No user found");
     }
   })
 })
