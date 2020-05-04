@@ -82,7 +82,7 @@ router.post('/login',function(req,res,next){
 
     else{
       // this could be a flash
-      req.flash("No user found");
+      req.flash("failure","No user found");
       res.redirect('back')
     }
   })
