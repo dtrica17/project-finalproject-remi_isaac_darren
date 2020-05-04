@@ -17,7 +17,7 @@ router.get('/register', function(req, res){
 //Register process
 router.post('/register',function(req, res){
   const name = req.body.name;
-  const id = req.body.username;
+  const username = req.body.username;
   // these cant be added yet
   // req.checkBody('username', 'Username is required').notEmpty();
   // req.checkBody('name', 'name is required').notEmpty();
@@ -30,7 +30,7 @@ router.post('/register',function(req, res){
   //}else{
     let newUser = new User({
       name:name,
-      _id:id
+      _id:username
     });
     newUser.save(function(err){
       // theres a better way to do this i know
