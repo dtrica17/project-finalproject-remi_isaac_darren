@@ -29,8 +29,8 @@ router.post('/register',function(req, res){
   //   })
   //}else{
     let newUser = new User({
-      name:name,
-      _id:username
+      _id:username,
+      name:name
     });
     newUser.save(function(err){
       // theres a better way to do this i know
