@@ -6,10 +6,10 @@
 
   <div class="p-3">
     <h2><%= event._id -%></h2>
-    <div class="container-fluid" style="background-color: #4d0000;">
-    <h4>People Invited: </h4>
-  </div>
+    <!-- <div class="container-fluid" style="background-color: #4d0000;"> -->
+    <h4 class = "color-red">People Invited: </h4>
     <p ><%= event.people_invited-%></p>
+    <!-- </div> -->
     <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
     <h4>Location: </h4>
     <p><%=event.location-%></p>
