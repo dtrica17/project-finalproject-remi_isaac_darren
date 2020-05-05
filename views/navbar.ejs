@@ -2,10 +2,10 @@
   <img src="https://www.stlawu.edu/sites/all/files/logo.svg" alt="Navbar" height="60" width="140" />
   <h1 class="navbar-brand m-3" >Non Academic Events</h1>
   <nav class="navbar-nav m-3" style="background-color: #4b2b23;">
-    <a href="/" class="nav-item nav-link <%= (active === 'Calendar') ? 'active' : 'inactive' -%> text-white p-1" >Calendar</a>
+    <a href="/" class="nav-item nav-link <%= (active === 'Calendar') ? 'active' : 'inactive' -%> text-white m-1" >Calendar</a>
     <%_ if(user) { -%>
-      <a href="/events/myEvents" class="nav-item nav-link <%= (active === 'myEvents') ? 'active' : 'inactive' -%> text-white p-1">My Events</a>
-      <a href="/events/add" class="nav-item nav-link <%= (active === 'add') ? 'active' : 'inactive' -%> text-white p-1" >Create Event</a>
+      <a href="/events/myEvents" class="nav-item nav-link <%= (active === 'myEvents') ? 'active' : 'inactive' -%> text-white m-1 p-2">My Events</a>
+      <a href="/events/add" class="nav-item nav-link <%= (active === 'add') ? 'active' : 'inactive' -%> text-white m-1 p-2" >Create Event</a>
     <%_ } -%>
 
 
