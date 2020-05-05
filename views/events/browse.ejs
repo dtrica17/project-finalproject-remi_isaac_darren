@@ -1,13 +1,15 @@
 <%- include('../head'); -%>
-<body>
+
+<body style="background-image : url('    https://www.usnews.com/dims4/USNEWS/e2b7c3a/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Ff7%2F72a859262b3b73e5ffd07bdc78efca%2Fcollege-photo_22485.jpg
+'); background-size:100%" >
+
   <%- include('../navbar', {active: 'Calendar'}); -%>
 
   <div class="p-3">
     <h2><%= event._id -%></h2>
     <!-- <div class="container-fluid" style="background-color: #4d0000;"> -->
-
     <h4>People Invited: </h4>
-    <p cstyle="border:3px; border-style:solid; border-color:#FF0000; display:inline"><%= event.people_invited-%></p>
+    <p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline"><%= event.people_invited-%></p>
     <!-- </div> -->
     <h4>Location: </h4>
     <p><%=event.location-%></p>
@@ -20,7 +22,7 @@
     <h2>Comments: </h2>
     <%_ for (const c of comments) { -%>
       <p><%-c.comment-%></p>
-      <p>Posted By: <%-c.author-%></p>
+      <p> - Posted By: <%-c.author-%></p>
       <%_ if(owner) { -%>
         <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
           <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
