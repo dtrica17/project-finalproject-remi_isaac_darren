@@ -11,16 +11,27 @@
 
     <h4 class = "text-danger" style = "opacity: 1">People Invited: </h4>
     <p class = "text-danger"><%= event.people_invited-%></p>
-
+    </div>
     <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
+    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h4 class = "text-danger">Location: </h4>
     <p class = "text-danger"><%=event.location-%></p>
+    </div>
+    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h4 class = "text-danger">Date: </h4>
     <p class = "text-danger"><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
+    </div>
+    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h4 class = "text-danger">Organizer: </h4>
     <p class = "text-danger"><%=event.organizer-%></p>
+    </div>
+    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
+
     <h4 class = "text-danger">Description: </h4>
     <p class = "text-danger"><%= event.description -%></p>
+    </div>
+    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
+
     <h2 class = "text-danger">Comments: </h2>
     <%_ for (const c of comments) { -%>
       <p class = "text-danger"><%-c.comment-%></p>
@@ -32,6 +43,7 @@
       <%_ } -%>
 
     <%_ } -%>
+    </div>
     <p><br /></p>
     <%_ if(owner) { -%>
       <form action="/comments/add" method="post">
@@ -51,5 +63,4 @@
       <%_ } -%>
     <%_ } -%>
     </div>
-  </div>
 </body>
