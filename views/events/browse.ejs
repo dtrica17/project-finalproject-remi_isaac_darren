@@ -4,10 +4,12 @@
 
   <div class="p-3">
     <h2><%= event._id -%></h2>
-    <div class="container" style="background-color: #4d0000;">
+    <!-- <div class="container-fluid" style="background-color: #4d0000;"> -->
+    <span class="border"></span>
     <h4 class = "text-white">People Invited: </h4>
     <p class = "text-white"><%= event.people_invited-%></p>
-    </div>
+    <span class="border"></span>
+    <!-- </div> -->
     <h4>Location: </h4>
     <p><%=event.location-%></p>
     <h4>Date: </h4>
