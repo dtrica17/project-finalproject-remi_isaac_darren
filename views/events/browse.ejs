@@ -5,24 +5,24 @@
   <body style="background-image : url('https://www.stlawu.edu/sites/default/files/news-images/Sullivan-Student-Center.jpg'); background-size:100%" >
 
   <div class="p-3">
-    <h2><%= event._id -%></h2>
+    <h2 class = "text-warning"><%= event._id -%></h2>
     <!-- <div class="container-fluid" style="background-color: #4d0000;"> -->
-    <h4 class = "text-warning">People Invited: </h4>
-    <p lass = "text-warning"><%= event.people_invited-%></p>
+    <h4 class = "text-danger">People Invited: </h4>
+    <p class = "text-danger"><%= event.people_invited-%></p>
     <!-- </div> -->
     <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
-    <h4 class = "text-warning">Location: </h4>
-    <p class = "text-warning"><%=event.location-%></p>
-    <h4 class = "text-warning">Date: </h4>
-    <p class = "text-warning"><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
-    <h4 class = "text-warning">Organizer: </h4>
-    <p class = "text-warning"><%=event.organizer-%></p>
-    <h4 class = "text-warning">Description: </h4>
-    <p class = "text-warning"><%= event.description -%></p>
-    <h2 class = "text-warning">Comments: </h2>
+    <h4 class = "text-danger">Location: </h4>
+    <p class = "text-danger"><%=event.location-%></p>
+    <h4 class = "text-danger">Date: </h4>
+    <p class = "text-danger"><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
+    <h4 class = "text-danger">Organizer: </h4>
+    <p class = "text-danger"><%=event.organizer-%></p>
+    <h4 class = "text-danger">Description: </h4>
+    <p class = "text-danger"><%= event.description -%></p>
+    <h2 class = "text-danger">Comments: </h2>
     <%_ for (const c of comments) { -%>
-      <p class = "text-warning"><%-c.comment-%></p>
-      <p class = "text-warning"> - Posted By: <%-c.author-%></p>
+      <p class = "text-danger"><%-c.comment-%></p>
+      <p class = "text-danger"> - Posted By: <%-c.author-%></p>
       <%_ if(owner) { -%>
         <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
           <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
