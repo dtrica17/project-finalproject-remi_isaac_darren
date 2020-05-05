@@ -5,11 +5,11 @@
   <body style="background-image : url('https://www.stlawu.edu/sites/default/files/news-images/Sullivan-Student-Center.jpg'); background-size:100%" >
 
   <div class="p-3">
-    <h2 class = "text-warning"><%= event._id -%></h2>
-    <!-- <div class="container-fluid" style="background-color: #4d0000;"> -->
+    <h2 class = "text-danger"><%= event._id -%></h2>
+    <div class="container-fluid" ">
     <h4 class = "text-danger">People Invited: </h4>
     <p class = "text-danger"><%= event.people_invited-%></p>
-    <!-- </div> -->
+
     <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
     <h4 class = "text-danger">Location: </h4>
     <p class = "text-danger"><%=event.location-%></p>
@@ -48,5 +48,6 @@
         <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
       <%_ } -%>
     <%_ } -%>
+    </div> 
   </div>
 </body>
