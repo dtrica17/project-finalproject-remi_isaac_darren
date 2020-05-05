@@ -1,7 +1,7 @@
-<header class="navbar navbar-expand navbar-light bg-dark">
+<header class="navbar navbar-expand navbar-light bg-dark" style="background-color: #af1e2d;">
   <img src="https://www.stlawu.edu/sites/all/files/logo.svg" alt="Navbar" height="60" width="140" />
   <h1 class="navbar-brand m-3" >Non Academic Events</h1>
-  <nav class="navbar-nav ml-3" style="background-color: #af1e2d;">
+  <nav class="navbar-nav ml-3" >
     <a href="/" class="nav-item nav-link <%= (active === 'Calendar') ? 'active' : 'inactive' -%>">Calendar</a>
     <%_ if(user) { -%>
       <a href="/events/myEvents" class="nav-item nav-link <%= (active === 'myEvents') ? 'active' : 'inactive' -%>">My Events</a>
