@@ -5,8 +5,8 @@
   <% Object.keys(locals.messages).forEach(function (type) { %>
     <% console.log("type: " + type) %>
     <% messages[type].forEach(function (message) { %>
-      <% let t = type %>
-        <div class='alert alert-'+<%t.toString()%> role='alert'> <%=message-%></div>
+      <% if() %>
+        <div class='alert alert-$(<%t.toString()%>)'' role='alert'> <%=message-%></div>
 
     <% }) %>
   <% }) %>
