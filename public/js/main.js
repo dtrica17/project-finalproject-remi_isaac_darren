@@ -55,7 +55,6 @@ $(document).ready(function(){
       type:'Get',
       url:'/events/add',
       success: function(response){
-        alert('Event already exists');
         window.location.href='/events/add';
       },
       error: function(err){
