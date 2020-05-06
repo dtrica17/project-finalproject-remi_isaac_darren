@@ -10,9 +10,12 @@
         <h1>Calendar: </h1>
         <!-- This is the calendar view it displays all events -->
         <%_ for (const e of allEvents) { -%>
-          <a href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e._id-%></a>
-          <!-- this date format needs to be fixed -->
-          <p class="ml-3"><%=e.date.toLocaleDateString()-%> <%=e.date.toLocaleTimeString()-%></p>
+          <div class="card bg-light w-50">
+            <a class = "card-text" href="/events/<%= e._id -%>" class="nav-item nav-link"><%=e._id-%></a>
+            <!-- this date format needs to be fixed -->
+            <p class="card-subtitle"class="ml-3"><%=e.date.toLocaleDateString()-%> <%=e.date.toLocaleTimeString()-%></p>
+          </div>
+
         <%_ } -%>
       </main>
   </div>
