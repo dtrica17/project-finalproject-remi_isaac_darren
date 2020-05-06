@@ -18,23 +18,19 @@ router.get('/register', function(req, res){
 router.post('/register',function(req, res){
   const name = req.body.name;
   const username = req.body.username;
-  // these cant be added yet
-  // req.checkBody('username', 'Username is required').notEmpty();
-  // req.checkBody('name', 'name is required').notEmpty();
 
-  //let errors = req.validationErrors();
-  // if(errors){
-  //   res.render('register',{
-  //     errors:errors
-  //   })
-  //}else{
     let newUser = new User({
       _id:username,
       name:name
     });
     newUser.save(function(err){
       // theres a better way to do this i know
-      if(err){
+      // this is a duplicate name error need to send a flash
+      if(error.name === 'MongoError' && error.code === 11000)){
+          req.flash('failure', 'Username taken');
+          res.redirect('back');
+      }
+      else if(err){
         console.log(err);
         return;
       }else{
