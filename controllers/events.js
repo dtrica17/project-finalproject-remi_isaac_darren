@@ -60,6 +60,9 @@ router.post('/add', function(req,res){
 
     event.save(function(err){
       if(err){
+        console.log('err.name: ' + err.name);
+        console.log('err.code: ' + err.code);
+        if(err.name === 'mongoose')
         console.log(err);
         return;
       }
