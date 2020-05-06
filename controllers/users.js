@@ -31,7 +31,10 @@ router.post('/register',function(req, res){
         if(err.name === 'MongoError' && err.code === 11000){
             req.flash('danger', 'Username taken');
             res.redirect('back');
-        }else {
+        }else if(err.name='ValidationError'){
+          req.flash('danger', 'Missing Fields');
+          res.redirect('back');
+        }
         console.log(err);
         return;
       }
@@ -81,7 +84,7 @@ router.post('/login',function(req,res,next){
 
     else{
       // this could be a flash
-      req.flash("failure","No user found");
+      req.flash("danger","No user found");
       res.redirect('back')
     }
   })
