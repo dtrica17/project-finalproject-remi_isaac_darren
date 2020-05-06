@@ -27,7 +27,7 @@
 .BROWN .nav-link:hover {
   text-decoration: underline;
 }
-
+/*  for turning submit button brown
 input.btn-primary{
   background: #4b2b23;
   border: 2px solid #4b2b23;
@@ -45,7 +45,7 @@ button.btn-primary:hover{
   background: white;
   border: 2px solid #4c2b23;
 
-}
+} */
 /* button.btn-primary{
   background: #4b2b23;
   border: 2px solid #4b2b23;
