@@ -5,18 +5,20 @@
   <% Object.keys(locals.messages).forEach(function (type) { %>
     <% console.log("type: " + type) %>
     <% messages[type].forEach(function (message) { %>
-      <% if(type === info) %>
+      <% if(type === 'info') %>
         <div class='alert alert-info' role='alert'> <%=message-%></div>
       <% } %>
-      <% if(type === success) %>
+      <% if(type === 'success') %>
         <div class='alert alert-success' role='alert'> <%=message-%></div>
       <% } %>
-      <% if(type === danger) %>
+      <% if(type === 'danger') %>
         <div class='alert alert-danger' role='alert'> <%=message-%></div>
       <% } %>
-      <% if(type === warning) %>
+      <% if(type === 'warning') %>
         <div class='alert alert-warning' role='alert'> <%=message-%></div>
-      <% } %>
+      <% } else { %>
+        <div class='alert alert-danger' role='alert'> DIDNT WORK!!!!!</div>
+        <% } %>
     <% }) %>
   <% }) %>
 </div>
