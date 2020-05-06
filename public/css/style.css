@@ -37,12 +37,10 @@ button.btn-primary{
   border: 2px solid #4b2b23;
 }
 input.btn-primary:hover{
-  background: #4b2b23;
-  border: 2px solid #4b2b23;
+  background: #4b2c23;
 }
 button.btn-primary:hover{
-  background: #4b2b23;
-  border: 2px solid #4b2b23;
+  background: #4b2c23;
 }
 /* button.btn-primary{
   background: #4b2b23;
