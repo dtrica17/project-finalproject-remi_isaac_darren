@@ -3,7 +3,7 @@
 
 <div id="messages">
   <% Object.keys(locals.messages).forEach(function (type) { %>
-    <% console.log(type) %>
+    <% console.log("type: " + type) %>
     <% messages[type].forEach(function (message) { %>
       <div class='alert alert-success' role='alert'> <%=message-%></div>
     <% }) %>
