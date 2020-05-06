@@ -10,6 +10,7 @@
 <div id="messages">
   <% Object.keys(locals.messages).forEach(function (type) { %>
     <% messages[type].forEach(function (message) { %>
+      <% console.log("type ", JSON.stringify(doc, null, '\t')) %>
       <% console.log(type, JSON.stringify(doc, null, '\t')) %>
 
       <div class='alert alert'+<%=type-%> role='alert'> <%=message-%></div>
