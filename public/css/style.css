@@ -12,5 +12,10 @@
 }
 
 .HIDDEN{
-  visibility:hidden 
+  visibility:hidden
+}
+
+
+.BROWN{
+  background-color: #4b2b23;
 }
