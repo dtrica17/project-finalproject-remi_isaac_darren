@@ -25,6 +25,7 @@ app.use(function(req,res,next){
   next();
 });
 
+
 // Parse request bosies like queries
 app.use(express.urlencoded({extended: false}));
 
