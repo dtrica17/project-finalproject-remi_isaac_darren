@@ -35,7 +35,7 @@ $(document).ready(function(){
         type:'Delete',
         url:'/comments/'+id,
         success: function(response){
-          window.location.href='/'+url;
+          window.location.href='/events/'+url;
         },
         error: function(err){
           console.log(err);
