@@ -3,10 +3,13 @@
 
   <%- include('../navbar', {active: 'Calendar'}); -%>
 <body>
-  <div class="p-3 card">
-    <h2 class = ""><%= event._id -%></h2>
+  <h2 class = ""><%= event._id -%></h2>
+
+  <div class="p-3">
+
     <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
-    <div class="container-fluid">
+
+    <div class="card">
       <div class="card-body">
         <h4 class = "card-title">People Invited: </h4>
         <p class = "card-text"><%= event.people_invited-%></p>
