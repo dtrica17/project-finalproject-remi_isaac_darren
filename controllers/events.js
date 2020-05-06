@@ -79,7 +79,7 @@ router.post('/add', function(req,res){
       }
       else{
         req.flash("success",'Event Added');
-        res.redirect('back');
+        res.redirect('/');
       }
     })
 

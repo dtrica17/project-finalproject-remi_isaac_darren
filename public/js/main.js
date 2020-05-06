@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
   });
 
-
+  // Im not sure why this was is here but it isn't needed I dont think
   // $('.edit-event').on('click',function(e){
   //   $target = $(e.target);
   //   const id = $target.attr('data-id');
