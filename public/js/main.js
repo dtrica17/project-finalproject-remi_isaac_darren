@@ -28,11 +28,11 @@ $(document).ready(function(){
     console.log("deleting event");
     $target = $(e.target);
     const id = $target.attr('data-id');
-    $.ajax({
-      type:'Delete',
-      url:'/comments/'+id,
-      let del = confirm("Delete Event?");
-      if(del){
+    let del = confirm("Delete Event?");
+    if(del){
+      $.ajax({
+        type:'Delete',
+        url:'/comments/'+id,
         success: function(response){
           alert('Deleting Comment');
           window.location.href='/';
@@ -40,27 +40,27 @@ $(document).ready(function(){
         error: function(err){
           console.log(err);
         }
-
       })
-      else{
-        window.location.href='/';
+    }
+    else{
+      window.location.href='/';
+    }
+  });
+
+
+  $('.edit-event').on('click',function(e){
+    $target = $(e.target);
+    const id = $target.attr('data-id');
+    $.ajax({
+      type:'Get',
+      url:'/events/add',
+      success: function(response){
+        alert('Event already exists');
+        window.location.href='/events/add';
+      },
+      error: function(err){
+        console.log(err);
       }
     });
-
-
-    $('.edit-event').on('click',function(e){
-      $target = $(e.target);
-      const id = $target.attr('data-id');
-      $.ajax({
-        type:'Get',
-        url:'/events/add',
-        success: function(response){
-          alert('Event already exists');
-          window.location.href='/events/add';
-        },
-        error: function(err){
-          console.log(err);
-        }
-      });
-    });
   });
+});
