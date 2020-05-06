@@ -89,13 +89,8 @@ router.post('/edit/:id', function(req,res){
       return;
     }
     else{
-      if(req.session.user !== eve.organizer){
-        return res.status(401).send({ error : err.message });
-      }else {
-        req.flash("success", "Event Updated")
-        res.redirect('/');
-
-      }
+      req.flash("success", "Event Updated")
+      res.redirect('/');
     }
   })
 })
@@ -112,7 +107,10 @@ router.delete('/:id', function(req, res){
 
 // load edit form
 router.get('/edit/:id',function(req,res){
-  const queries = [
+  if(req.session.user !== eve.organizer){
+    return res.status(401).send({ error : err.message });
+  }
+    const queries = [
     Event.findById(req.params.id),
     Comment.find().where('event').equals(Event.findById(req.params.id)._id)
   ];
