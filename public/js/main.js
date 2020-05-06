@@ -28,14 +28,14 @@ $(document).ready(function(){
     console.log("deleting event");
     $target = $(e.target);
     const id = $target.attr('data-id');
-    let del = confirm("Delete Event?");
+    const url = $target.attr('data-url');
+    let del = confirm("Delete Comment?");
     if(del){
       $.ajax({
         type:'Delete',
         url:'/comments/'+id,
         success: function(response){
-          alert('Deleting Comment');
-          window.location.href='/';
+          window.location.href='/'+url;
         },
         error: function(err){
           console.log(err);

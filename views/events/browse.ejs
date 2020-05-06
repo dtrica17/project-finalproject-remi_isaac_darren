@@ -36,7 +36,7 @@
 
         <%_ if(owner) { -%>
           <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
-            <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
+            <a href="#"<button class="btn btn-danger delete-comment" data-url='<%=event._id-%>' data-id='<%= c._id-%>'>Delete</button></a>
           <%_ } -%>
         <%_ } -%>
 
