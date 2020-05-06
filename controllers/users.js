@@ -26,7 +26,7 @@ router.post('/register',function(req, res){
     newUser.save(function(err){
       // theres a better way to do this i know
       // this is a duplicate name error need to send a flash
-      if(error.name === 'MongoError' && error.code === 11000)){
+      if(error.name === 'MongoError' && error.code === 11000){
           req.flash('failure', 'Username taken');
           res.redirect('back');
       }
