@@ -1,4 +1,4 @@
-
+alert(1);
 // this is used for deleting an event
 $(document).ready(function(){
   $('.delete-eve').on('click',function(e){
