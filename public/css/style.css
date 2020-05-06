@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image : url('https://www.stlawu.edu/sites/default/files/news-images/Sullivan-Student-Center.jpg');
+  background-image : url('https://www.stlawu.edu/sites/default/files/news-images/Sullivan-Student-Center.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
