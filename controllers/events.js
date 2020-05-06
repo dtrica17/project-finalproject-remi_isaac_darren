@@ -108,7 +108,7 @@ router.delete('/:id', function(req, res){
 // load edit form
 router.get('/edit/:id',function(req,res){
   if(req.session.user !== eve.organizer){
-    return res.status(401).send({ error : err.message });
+    return res.status(401).end();
   }
     const queries = [
     Event.findById(req.params.id),
