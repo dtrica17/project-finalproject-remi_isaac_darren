@@ -7,7 +7,7 @@
     <% messages[type].forEach(function (message) { %>
       <%_ if(type === 'info'){ -%>
         <div class='alert alert-info' role='alert'> <%=message-%></div>
-      <%_ } else{-%>
+      <%_ } else if(type==='success'){-%>
         <div class='alert alert-success' role='alert'> <%=message-%></div>
       <%_ } -%>
     <% }) %>
