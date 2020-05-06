@@ -2,9 +2,9 @@
 <html lang="en" dir="ltr">
 <%- include('./head'); -%>
 
-    <%- include('./navbar', {active: 'login'}); -%>
-    <body class="p-3 container-fluid">
-
+<%- include('./navbar', {active: 'login'}); -%>
+<body>
+  <div class="p-3 container-fluid">
     <h1>Login</h1>
     <form class="form-group" action="/users/login" method="post">
       <label for="">Username</label>
@@ -12,5 +12,7 @@
       <!-- Need to add the button below -->
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
-  </body>
+  </div>
+  
+</body>
 </html>
