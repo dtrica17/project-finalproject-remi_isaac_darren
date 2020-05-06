@@ -66,13 +66,15 @@ router.post('/add', function(req,res){
       if(err){
         if (error.name === 'MongoError' && error.code === 11000) {
           req.flash("Failure", event._id + " already exsists")
+          res.redirect('back');
         }
         if(err.name === 'ValidationError'){
           req.flash("failure", "Missing Fields");
           res.redirect("back");
+        } else {
+          console.log(err);
+
         }
-        console.log(err);
-        return;
       }
       else{
         req.flash("success",'Event Added');
