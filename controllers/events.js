@@ -48,8 +48,9 @@ router.get('/add',function(req, res){
 });
 
 // add Submit post route
+// this is not working
 router.post('/add', function(req,res){
-
+  console.log("creating");
     let event = new Event();
     event._id = req.body.title;
     if(req.body.people_invited == ""){
