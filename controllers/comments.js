@@ -12,7 +12,7 @@ router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
   Comment.remove(query, function(err){
     if(err){console.log(err)}
-    req.flash("success", "Comment Deleted");
+    req.flash("warning", "Comment Deleted");
     res.send('Success');
 
   })
@@ -30,7 +30,7 @@ router.post('/add', function(req,res){
     // if the comment is empty
     if(c.comment == ''){
       console.log("no comment");
-      req.flash("failure", "Comment cannot be empty");
+      req.flash("danger", "Comment cannot be empty");
       res.redirect('back');
     }
     else if(err){

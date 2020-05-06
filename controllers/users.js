@@ -29,7 +29,7 @@ router.post('/register',function(req, res){
 
       if(err){
         if(err.name === 'MongoError' && err.code === 11000){
-            req.flash('failure', 'Username taken');
+            req.flash('danger', 'Username taken');
             res.redirect('back');
         }else {
         console.log(err);
@@ -38,7 +38,6 @@ router.post('/register',function(req, res){
       }else{
         // no flash yet
         //req.flash('success', 'you are registered and can log in');
-        console.log('success', 'you are registered and can log in');
         req.flash("success", "You are registered and can now log in");
         res.redirect('/users/login');
       }
