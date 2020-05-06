@@ -76,7 +76,7 @@ router.post('/login',function(req,res,next){
     if(result[0].length > 0){
       req.session.user = req.body.username;
       console.log("current user " +req.session.user);
-      req.flash("info", "Logged in");
+      req.flash("alert alert-info", "Logged in");
       res.redirect('/');
     }
 
