@@ -6,15 +6,17 @@
   <div class="p-3 card">
     <h2 class = ""><%= event._id -%></h2>
     <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
-    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
+    <div class="container-fluid">
+      <div class="card-body">
+        <h4 class = "card-title">People Invited: </h4>
+        <p class = "card-text"><%= event.people_invited-%></p>
+      </div>
 
-    <h4 class = "" style = "opacity: 1">People Invited: </h4>
-    <p class = ""><%= event.people_invited-%></p>
     </div>
     <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
-    <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
-    <h4 class = "">Location: </h4>
-    <p class = ""><%=event.location-%></p>
+    <div class="card-body">
+      <h4 class = "card-title">Location: </h4>
+      <p class = "card-text"><%=event.location-%></p>
     </div>
     <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h4 class = "">Date: </h4>
