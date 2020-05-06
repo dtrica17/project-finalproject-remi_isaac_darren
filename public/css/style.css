@@ -28,11 +28,19 @@
   text-decoration: underline;
 }
 
-input.btn-primary button.btn-primary{
+input.btn-primary{
   background: #4b2b23;
   border: 2px solid #4b2b23;
 }
-input.btn-primary:hover button.btn-primary:hover{
+button.btn-primary{
+  background: #4b2b23;
+  border: 2px solid #4b2b23;
+}
+input.btn-primary:hover{
+  background: #4b2b23;
+  border: 2px solid #4b2b23;
+}
+button.btn-primary:hover{
   background: #4b2b23;
   border: 2px solid #4b2b23;
 }
