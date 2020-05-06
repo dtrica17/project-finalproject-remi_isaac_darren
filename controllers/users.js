@@ -34,7 +34,7 @@ router.post('/register',function(req, res){
         }else if(err.name='ValidationError'){
           req.flash('danger', 'Missing Fields');
           res.redirect('back');
-        }
+        } else {
         console.log(err);
         return;
       }
