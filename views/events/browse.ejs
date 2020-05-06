@@ -25,8 +25,11 @@
     <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h2 class = " ">Comments: </h2>
     <%_ for (const c of comments) { -%>
-      <p class = " "><%-c.comment-%></p>
-      <p class = " "> - Posted By: <%-c.author-%></p>
+      <div class="card bg-light">
+        <p class = "card-text"><%-c.comment-%></p>
+        <p class = "card-subtitle"> - Posted By: <%-c.author-%></p>
+      </div>
+
       <%_ if(owner) { -%>
         <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
           <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
