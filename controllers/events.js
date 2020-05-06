@@ -62,7 +62,8 @@ router.post('/add', function(req,res){
       if(err){
 
         if(err.name === 'ValidationError'){
-          req.flash("failure", "Missing Fields")
+          req.flash("failure", "Missing Fields");
+          res.redirect("back");
         }
         console.log(err);
         return;
