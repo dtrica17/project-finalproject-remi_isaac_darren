@@ -30,6 +30,11 @@
 
 input.btn-primary{
   background: #4b2b23;
+  border: none;
+}
+button.btn-primary{
+  background: #4b2b23;
+  border: none;
 }
 
 body {
