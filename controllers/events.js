@@ -50,7 +50,7 @@ router.get('/add',function(req, res){
 // add Submit post route
 // this is not working
 router.post('/add', function(req,res){
-  console.log("creating");
+    console.log("creating");
     let event = new Event();
     event._id = req.body.title;
     if(req.body.people_invited == ""){
@@ -65,6 +65,7 @@ router.post('/add', function(req,res){
 
     event.save(function(err){
       if(err){
+        console.log("errers");
         if (err.name === 'MongoError' && err.code === 11000) {
           req.flash("Failure", event._id + " already exsists")
           res.redirect('back');
@@ -78,6 +79,7 @@ router.post('/add', function(req,res){
         }
       }
       else{
+        console.log("should begood")
         req.flash("success",'Event Added');
         res.redirect('/');
       }
