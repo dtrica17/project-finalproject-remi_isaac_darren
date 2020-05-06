@@ -18,6 +18,7 @@ $(document).ready(function(){
 
   });
   $('.delete-comment').on('click',function(e){
+    console.log("deleting event");
     $target = $(e.target);
     const id = $target.attr('data-id');
       $.ajax({
