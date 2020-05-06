@@ -52,7 +52,11 @@ router.post('/add', function(req,res){
 
     let event = new Event();
     event._id = req.body.title;
-    event.people_invited = req.body.people_invited;
+    if(req.body.people_invited == ""){
+      event.people_invited = "Everyone";
+    }else {
+      event.people_invited = req.body.people_invited;
+    }
     event.location = req.body.location;
     event.organizer = req.session.user;
     event.date = req.body.date;   // this prolly wont work right
@@ -60,7 +64,9 @@ router.post('/add', function(req,res){
 
     event.save(function(err){
       if(err){
-
+        if (error.name === 'MongoError' && error.code === 11000) {
+          req.flash("Failure", event._id + " already exsists")
+        }
         if(err.name === 'ValidationError'){
           req.flash("failure", "Missing Fields");
           res.redirect("back");
