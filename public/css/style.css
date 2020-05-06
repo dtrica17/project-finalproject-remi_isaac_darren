@@ -50,17 +50,3 @@ button.btn-primary:hover{
   background: #4b2b23;
   border: 2px solid #4b2b23;
 } */
-
-body {
-  background-image : url('https://www.stlawu.edu/sites/default/files/news-images/Sullivan-Student-Center.jpg');
-  /* The image used */
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
