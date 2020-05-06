@@ -57,7 +57,7 @@
       <%_ if(owner) { -%>
         <%_ if(owner._id === event.organizer) { -%>
           <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
-          <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
+          <button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button>
         <%_ } -%>
       <%_ } -%>
     </div>
