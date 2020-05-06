@@ -3,10 +3,10 @@
 <%- include('./head'); -%>
 
     <%- include('./navbar', {active: 'login'}); -%>
-    <body>
+    <body class="p-3 container-fluid">
 
     <h1>Login</h1>
-    <form class="" action="/users/login" method="post">
+    <form class="form-group" action="/users/login" method="post">
       <label for="">Username</label>
       <input type="text" name="username" value="">
       <!-- Need to add the button below -->
