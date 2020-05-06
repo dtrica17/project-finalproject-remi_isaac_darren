@@ -64,7 +64,7 @@ router.post('/add', function(req,res){
 
     event.save(function(err){
       if(err){
-        if (error.name === 'MongoError' && error.code === 11000) {
+        if (err.name === 'MongoError' && err.code === 11000) {
           req.flash("Failure", event._id + " already exsists")
           res.redirect('back');
         }
