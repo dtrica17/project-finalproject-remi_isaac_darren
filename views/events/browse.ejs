@@ -5,42 +5,22 @@
 <body>
   <h2 class = ""><%= event._id -%></h2>
 
-  <div class="p-3">
+  <div class="p-3 bg-light">
 
-    <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
+      <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
 
-    <div class="card">
-      <div class="card-body">
-        <h4 class = "card-title">People Invited: </h4>
-        <p class = "card-text"><%= event.people_invited-%></p>
-      </div>
+      <h4>People Invited: </h4>
+      <p><%= event.people_invited-%></p>
 
-    </div>
-    <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
-    <div class="card">
-      <div class="card-body">
-        <h4 class = "card-title">Location: </h4>
-        <p class = "card-text"><%=event.location-%></p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
+      <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
+      <h4 class = "card-title">Location: </h4>
+      <p class = "card-text"><%=event.location-%></p>
       <h4 class = "">Date: </h4>
       <p class = ""><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
-      </div>
-    </div>
-    <div class="">
-      <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
       <h4 class = "">Organizer: </h4>
       <p class = ""><%=event.organizer-%></p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
       <h4 class = "">Description: </h4>
       <p class = " "><%= event.description -%></p>
-      </div>
-    </div>
 
     <div class="container-fluid" style="background: rgba(255, 255, 255, 0.5);">
     <h2 class = " ">Comments: </h2>
