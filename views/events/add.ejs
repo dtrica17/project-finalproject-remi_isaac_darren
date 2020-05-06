@@ -8,26 +8,26 @@
   <div class="container-fluid">
       <main class="p-3">
         <h1>Add Event: </h1>
-        <form class="" action="/events/add" method="post">
+        <form class="form-group" action="/events/add" method="post">
           <div class="form-group">
             <label for="Title">Title</label>
-            <input type="text" name="title" value="">
+            <input type="text" class='form-control' name="title" value="">
           </div>
           <div class="form-group">
             <label for="Title">People Invited: </label>
-            <input type="text" name="people_invited" value="">
+            <input type="text" class='form-control' name="people_invited" value="">
           </div>
           <div class="form-group">
             <label for="Title">Location: </label>
-            <input type="text" name="location" value="">
+            <input type="text" class='form-control' name="location" value="">
           </div>
           <div class="form-group">
             <label for="Title">Date: </label>
-            <input type="datetime-local" name="date" value="">
+            <input type="datetime-local" class='form-control' name="date" value="">
           </div>
           <div class="form-group">
             <label for="Title">Description: </label>
-            <input type="textarea" name="description" value="">
+            <textarea class='form-control' rows='3' name="description" value=""></textarea>
           </div>
           <input class="btn btn-primary edit-event" type="submit" name="" value="submit">
         </form>
