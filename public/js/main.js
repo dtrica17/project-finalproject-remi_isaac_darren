@@ -1,4 +1,3 @@
-alert(1);
 //this is used for deleting an event
 $(document).ready(function(){
   $('.delete-eve').on('click',function(e){
@@ -9,6 +8,7 @@ $(document).ready(function(){
       type:'Delete',
       url:'/events/'+id,
       success: function(response){
+        confirm("Delete Event?");
         window.location.href='/';
       },
       error: function(err){
