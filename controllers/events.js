@@ -107,15 +107,16 @@ router.delete('/:id', function(req, res){
 
 // load edit form
 router.get('/edit/:id',function(req,res){
-  if(req.session.user !== eve.organizer){
-    return res.status(401).end();
-  }
+
     const queries = [
     Event.findById(req.params.id),
     Comment.find().where('event').equals(Event.findById(req.params.id)._id)
   ];
   Promise.all(queries).then(function([eve, comments]) {
-    if (eve) {
+    if(req.session.user !== eve.organizer){
+      return res.status(401).end();
+    }
+    else if (eve) {
       const date = eve.date.toISOString().substring(0,16);
       console.log(date);
       res.render('events/edit_event', {
