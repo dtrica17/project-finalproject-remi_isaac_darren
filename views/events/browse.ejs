@@ -2,59 +2,62 @@
 
 
   <%- include('../navbar', {active: 'Calendar'}); -%>
-<body class="p-3">
-  <h2 class = ""><%= event._id -%></h2>
+<body class=>
+  <main class="p-3 container-fluid">
+    <h2 class = ""><%= event._id -%></h2>
 
-  <div class="bg-light">
+    <div class="bg-light">
 
-      <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
+        <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
 
-      <h4>People Invited: </h4>
-      <p><%= event.people_invited-%></p>
+        <h4>People Invited: </h4>
+        <p><%= event.people_invited-%></p>
 
-      <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
-      <h4 class = "card-title">Location: </h4>
-      <p class = "card-text"><%=event.location-%></p>
-      <h4 class = "">Date: </h4>
-      <p class = ""><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
-      <h4 class = "">Organizer: </h4>
-      <p class = ""><%=event.organizer-%></p>
-      <h4 class = "">Description: </h4>
-      <p class = " "><%= event.description -%></p>
+        <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
+        <h4 class = "card-title">Location: </h4>
+        <p class = "card-text"><%=event.location-%></p>
+        <h4 class = "">Date: </h4>
+        <p class = ""><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
+        <h4 class = "">Organizer: </h4>
+        <p class = ""><%=event.organizer-%></p>
+        <h4 class = "">Description: </h4>
+        <p class = " "><%= event.description -%></p>
 
-    <div>
-    <h2 class = " ">Comments: </h2>
-    <%_ for (const c of comments) { -%>
-      <div class="card bg-light w-25">
-        <p class = "card-text"><%-c.comment-%></p>
-        <p class = "card-subtitle"> - Posted By: <%-c.author-%></p>
+      <div>
+      <h2 class = " ">Comments: </h2>
+      <%_ for (const c of comments) { -%>
+        <div class="card bg-light w-25">
+          <p class = "card-text"><%-c.comment-%></p>
+          <p class = "card-subtitle"> - Posted By: <%-c.author-%></p>
+        </div>
+
+        <%_ if(owner) { -%>
+          <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
+            <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
+          <%_ } -%>
+        <%_ } -%>
+
+      <%_ } -%>
       </div>
-
+      <p><br /></p>
       <%_ if(owner) { -%>
-        <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
-          <a href="#"<button class="btn btn-danger delete-comment" data-id='<%= c._id-%>'>Delete</button></a>
+        <form action="/comments/add" method="post">
+          <div class="form-group">
+            <input type="textarea" name="comment" placeholder="Comment...">
+            <input class="HIDDEN" name="event" value="<%=event._id-%>">
+          </div>
+          <input class="btn btn-primary" type="submit"  value="comment">
+
+        </form>
+        <%_ } -%>
+      <p><br /></p>
+      <%_ if(owner) { -%>
+        <%_ if(owner._id === event.organizer) { -%>
+          <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
+          <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
         <%_ } -%>
       <%_ } -%>
+      </div>
+  </main>
 
-    <%_ } -%>
-    </div>
-    <p><br /></p>
-    <%_ if(owner) { -%>
-      <form action="/comments/add" method="post">
-        <div class="form-group">
-          <input type="textarea" name="comment" placeholder="Comment...">
-          <input class="HIDDEN" name="event" value="<%=event._id-%>">
-        </div>
-        <input class="btn btn-primary" type="submit"  value="comment">
-
-      </form>
-      <%_ } -%>
-    <p><br /></p>
-    <%_ if(owner) { -%>
-      <%_ if(owner._id === event.organizer) { -%>
-        <a href="/events/edit/<%=event._id-%>"<button class="btn btn-secondary">Edit</button></a>
-        <a href="#"<button class="btn btn-danger delete-eve" data-id='<%= event._id-%>'>Delete</button></a>
-      <%_ } -%>
-    <%_ } -%>
-    </div>
 </body>
