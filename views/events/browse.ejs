@@ -6,7 +6,7 @@
   <main class="p-3 container-fluid">
     <h2 class = ""><%= event._id -%></h2>
 
-    <div class="bg-light card">
+    <div class="bg-light card width-50">
 
         <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
 
@@ -26,7 +26,7 @@
       <div>
       <h2 class = "card-title">Comments: </h2>
       <%_ for (const c of comments) { -%>
-        <div class="card bg-light w-25">
+        <div class="card bg-light w-50">
           <p class = "card-text"><%-c.comment-%></p>
           <p class = "card-subtitle"> - Posted By: <%-c.author-%></p>
         </div>
