@@ -3,6 +3,7 @@
 $(document).ready(function(){
   $('.delete-eve').on('click',function(e){
     $target = $(e.target);
+    console.log("main.js " +$target.attr('data-id'))
     const id = $target.attr('data-id');
       $.ajax({
         type:'Delete',
