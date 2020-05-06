@@ -4,18 +4,25 @@ $(document).ready(function(){
     $target = $(e.target);
     console.log("main.js " +$target.attr('data-id'))
     const id = $target.attr('data-id');
-    $.ajax({
-      type:'Delete',
-      url:'/events/'+id,
-      success: function(response){
-        confirm("Delete Event?");
-        window.location.href='/';
-      },
-      error: function(err){
-        console.log(err);
-      }
+    let del = confirm("Delete Event");
+    if(del){
+      $.ajax({
+        type:'Delete',
+        url:'/events/'+id,
+        success: function(response){
+          confirm("Delete Event?");
+          window.location.href='/';
+        },
+        error: function(err){
+          console.log(err);
+        }
 
-    })
+      })
+    }
+    else{
+      window.location.href = '/';
+    }
+
 
   });
   $('.delete-comment').on('click',function(e){
