@@ -27,8 +27,10 @@ router.post('/add', function(req,res){
 
   c.save(function(err){
     // if the comment is empty
-    if(!c.comment){
-      req.flash("failure", "Enter a Comment")
+    if(c.comment == ''){
+      console.log("no comment");
+      req.flash("failure", "Enter a Comment");
+      res.redirect('back');
     }
     else if(err){
       console.log(err);
