@@ -15,8 +15,8 @@
   visibility:hidden
 }
 
-
-nav href .active{
+/* This doesn't work so have to hardcode it */
+.active{
   background-color: #4b2b23;
 }
 

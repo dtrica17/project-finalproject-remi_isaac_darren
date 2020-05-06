@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand nav-pills" style="background-color: #af1e2d;">
   <img src="https://www.stlawu.edu/sites/all/files/logo.svg" alt="Navbar" height="60" width="140" />
   <h1 class="navbar-brand m-3 text-light" >Non Academic Events</h1>
-  <nav class="navbar-nav m-3" >
+  <nav class="navbar-nav m-3 style="background-color: #4b2b23;" >
     <a href="/" class="nav-item nav-link <%= (active === 'Calendar') ? 'active' : 'inactive' -%> text-white m-1" >Calendar</a>
     <%_ if(user) { -%>
       <a href="/events/myEvents" class="nav-item nav-link <%= (active === 'myEvents') ? 'active BROWN' : 'inactive' -%> text-white m-1">My Events</a>
@@ -12,7 +12,7 @@
 
   </nav>
   <!-- I think this needs to go to a new page that has a user input a login -->
-  <nav class="navbar-nav ml-auto style="background-color: #4b2b23;>
+  <nav class="navbar-nav ml-auto style="background-color: #4b2b23;">
     <%_ if(user) { -%>
       <a href="/users/logout" class="nav-item nav-link text-white" style="background-color: #4b2b23;">Logout as <%=user-%></a>
       <%_ } else { -%>
