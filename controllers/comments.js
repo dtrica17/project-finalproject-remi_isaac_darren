@@ -12,8 +12,9 @@ router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
   Comment.remove(query, function(err){
     if(err){console.log(err)}
+    req.flash("success", "Comment Deleted");
     res.send('Success');
-    req.flash("success", "Comment Deleted")
+
   })
 })
 
