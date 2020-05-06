@@ -6,25 +6,25 @@
   <main class="p-3 container-fluid">
     <h2 class = ""><%= event._id -%></h2>
 
-    <div class="bg-light">
+    <div class="bg-light card">
 
         <!-- <div class="container-fluid" style=" background-color: #ffffff; opacity: .4;"> -->
 
-        <h4>People Invited: </h4>
-        <p><%= event.people_invited-%></p>
+        <h4 class="card-title">People Invited: </h4>
+        <p class="card-text"><%= event.people_invited-%></p>
 
         <!-- style="border:10px; border-style:solid; border-color:#FF0000; padding: 1em; display:inline" -->
         <h4 class = "card-title">Location: </h4>
         <p class = "card-text"><%=event.location-%></p>
-        <h4 class = "">Date: </h4>
-        <p class = ""><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
-        <h4 class = "">Organizer: </h4>
-        <p class = ""><%=event.organizer-%></p>
-        <h4 class = "">Description: </h4>
-        <p class = " "><%= event.description -%></p>
+        <h4 class = "card-title">Date: </h4>
+        <p class = "card-text"><%=event.date.toLocaleDateString()-%> <%=event.date.toLocaleTimeString()-%></p>
+        <h4 class = "card-title">Organizer: </h4>
+        <p class = "card-text"><%=event.organizer-%></p>
+        <h4 class = "card-title">Description: </h4>
+        <p class = "card-text"><%= event.description -%></p>
 
       <div>
-      <h2 class = " ">Comments: </h2>
+      <h2 class = "card-title">Comments: </h2>
       <%_ for (const c of comments) { -%>
         <div class="card bg-light w-25">
           <p class = "card-text"><%-c.comment-%></p>
