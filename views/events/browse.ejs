@@ -30,8 +30,8 @@
       <h2 class = "card-title">Comments: </h2>
       <%_ for (const c of comments) { -%>
         <div class="card bg-light w-50 mt-3">
-          <p class = "card-text pl-2"><%-c.comment-%></p>
-          <p class = "card-subtitle"> - Posted By: <%-c.author-%>
+          <p class = "card-text pl-2 pt-2"><%-c.comment-%></p>
+          <p class = "card-subtitle pl-2"> - Posted By: <%-c.author-%>
           <%_ if(owner) { -%>
             <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
               <a style="float: right;" href="#"<button class="btn btn-danger delete-comment" data-url='<%=event._id-%>' data-id='<%= c._id-%>'>Delete</button></a>
