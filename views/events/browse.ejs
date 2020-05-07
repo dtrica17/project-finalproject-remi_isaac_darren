@@ -32,15 +32,15 @@
         <div class="card bg-light w-50 mt-3">
           <p class = "card-text"><%-c.comment-%></p>
           <p class = "card-subtitle"> - Posted By: <%-c.author-%></p>
+          <%_ if(owner) { -%>
+            <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
+              <div align="right">
+                <a href="#"<button class="btn btn-danger delete-comment" data-url='<%=event._id-%>' data-id='<%= c._id-%>'>Delete</button></a>
+              </div>
+            <%_ } -%>
+          <%_ } -%>
         </div>
 
-        <%_ if(owner) { -%>
-          <%_ if(owner._id == event.organizer || owner._id == c.author) { -%>
-            <div align="right">
-              <a href="#"<button class="btn btn-danger delete-comment" data-url='<%=event._id-%>' data-id='<%= c._id-%>'>Delete</button></a>
-            </div>
-          <%_ } -%>
-        <%_ } -%>
 
       <%_ } -%>
       </div>
