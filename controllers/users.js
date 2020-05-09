@@ -32,7 +32,7 @@ router.post('/register',function(req, res){
             req.flash('danger', 'Username taken');
             res.redirect('back');
         }else if(err.name='ValidationError'){
-          req.flash('danger', 'Missing Fields');
+          req.flash('danger', 'Missing Username');
           res.redirect('back');
         } else {
         console.log(err);
